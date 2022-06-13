@@ -1,10 +1,10 @@
 <!--
-version:  0.0.5a
+version:  0.0.5b
 
 author:   Fabian Bartl
 email:    fabian@informatic-freak.de
 
-comment: Funktionsweise des Digitalen Signalprozessors (DSP)
+comment: `Funktionsweise des Digitalen Signalprozessors (DSP)`
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
 
@@ -32,7 +32,7 @@ translation: English translations/English.md
 | --------------------- | --------------------------------------------------------------------------------------- |
 | **Veranstaltung:**    | `Praktikum Digitale Systeme`                                                            |
 | **Hochschule:**       | `Technische Universität Freiberg`                                                       |
-| **Inhalte:**          | `@comment`                                                                              |
+| **Inhalte:**          | @comment                                                                                |
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys)  |
 | **Autoren**           | @author                                                                                 |
 
