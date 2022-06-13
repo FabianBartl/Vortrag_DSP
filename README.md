@@ -1,5 +1,5 @@
 <!--
-version:  0.0.9b
+version:  0.0.9c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -120,4 +120,16 @@ translation: English translations/English.md
 
 ### Bilder und Videos
 
-- https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
+                    {{0-2}}
+********************************************************************************
+
+* https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
+
+********************************************************************************
+
+                    {{0-2}}
+********************************************************************************
+
+*
+
+********************************************************************************
