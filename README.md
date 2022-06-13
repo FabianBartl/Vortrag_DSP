@@ -1,5 +1,5 @@
 <!--
-version:  0.0.7a
+version:  0.0.7b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -38,13 +38,18 @@ translation: English translations/English.md
 <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop">
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys"> -->
 
-## Gliederung
+                    {{1-2}}
+********************************************************************************
+
+**Gliederung**
 
 1. Geschichte
-0. Aufbau und Funktion
-0. Anwendungen
-0. Mein Beispiel
-0. Referenzen  
+2. Aufbau und Funktion
+3. Anwendungen
+4. Mein Beispiel
+5. Referenzen  
+
+********************************************************************************
 
 ## Geschichte
 
