@@ -1,5 +1,5 @@
 <!--
-version:  0.0.8
+version:  0.0.8a
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -10,7 +10,7 @@ organization: Technische Universität Bergakademie Freiberg
 comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
-logo: https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
+logo: img/
 
 language: de
 narrator: Deutsch Female
