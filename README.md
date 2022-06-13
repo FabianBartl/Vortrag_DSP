@@ -1,11 +1,11 @@
 <!--
-version:  0.0.5c
+version:  0.0.5d
 
-author: Fabian Bartl
+author: `Fabian Bartl`
 email: fabian@informatic-freak.de
 
-event: Praktikum Digitale Systeme
-organization: Technische Universität Freiberg
+event: `Praktikum Digitale Systeme`
+organization: `Technische Universität Freiberg`
 
 comment: `Funktionsweise des Digitalen Signalprozessors (DSP)`
 
