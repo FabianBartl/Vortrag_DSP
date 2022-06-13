@@ -1,5 +1,5 @@
 <!--
-version:  0.0.8c
+version:  0.0.9
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -24,7 +24,7 @@ translation: English translations/English.md
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
 
-# @title
+# Digitaler Signalprozessor (DSP)
 
 | Parameter             | Kursinformationen                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------- |
@@ -37,10 +37,7 @@ translation: English translations/English.md
 <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop">
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys"> -->
 
-                    {{1-2}}
-********************************************************************************
-
-**Gliederung**
+### Gliederung
 
 <ol>
 	<li>Geschichte</li>
@@ -51,14 +48,12 @@ translation: English translations/English.md
 	<li>Referenzen</li>
 </ol>
 
-********************************************************************************
-
 ## Geschichte
 
                     {{0-2}}
 ********************************************************************************
 
-**Begriff *DSP***
+### Begriff *DSP*
 
 | `digital signal processor`                            | `digital signal processing`                           |
 | ----------------------------------------------------- | ----------------------------------------------------- |
@@ -69,7 +64,7 @@ translation: English translations/English.md
                     {{1-2}}
 ********************************************************************************
 
-**Einordnung**
+### Einordnung
 
 
 
@@ -84,8 +79,8 @@ translation: English translations/English.md
 ## Simulation
 
 * Simulink mit MathWorks (MATLAB)
-	-> Tutorials anschauen
-	-> 'Interaktives' Beispiel erstellen
+	* Tutorials anschauen
+	* 'Interaktives' Beispiel erstellen
 
 >https://www.mathworks.com/matlabcentral/fileexchange/43155-dsp-system-toolbox-support-package-for-arm-cortex-m-processors
 
@@ -95,19 +90,19 @@ translation: English translations/English.md
 
 ### Literatur
 
-- https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
-- https://www.ibr.cs.tu-bs.de/courses/ws9798/seminar/haverkamp/seminar.html#385
-- http://www.elektro-archiv.de/archiv/d/dsp/
-- https://technobyte.org/dsp-advantages-disadvantages-block-diagram-applications/
+* https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
+* https://www.ibr.cs.tu-bs.de/courses/ws9798/seminar/haverkamp/seminar.html#385
+* http://www.elektro-archiv.de/archiv/d/dsp/
+* https://technobyte.org/dsp-advantages-disadvantages-block-diagram-applications/
 
-- https://www.sciencedirect.com/topics/engineering/digital-signal-processing-algorithm
+* https://www.sciencedirect.com/topics/engineering/digital-signal-processing-algorithm
 	- https://www.sciencedirect.com/science/article/pii/B9780080977683000118
 	- https://www.sciencedirect.com/science/article/pii/B9780128207352000196
 	- https://www.sciencedirect.com/science/article/pii/B9781558608740500095
 	- https://www.sciencedirect.com/science/article/pii/B9780081006290000013
 	- https://www.sciencedirect.com/science/article/pii/B9780128045473000012
 
-- https://www.sciencedirect.com/topics/computer-science/digital-signal-processing-algorithm
+* https://www.sciencedirect.com/topics/computer-science/digital-signal-processing-algorithm
 	- https://www.sciencedirect.com/science/article/pii/B9780123914903000114
 	- https://www.sciencedirect.com/science/article/pii/B9780127345307500064
 	- https://www.sciencedirect.com/science/article/pii/B9780127345307500015
