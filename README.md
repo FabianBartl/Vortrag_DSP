@@ -36,6 +36,18 @@ translation: English translations/English.md
 | **Link auf den GitHub:** | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**              | @author                                                                                                                                                                              |
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys)&nbsp;
+<!-- ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys) -->
 
 ---
+
+## Gliederung
+
+## Geschichte
+
+## Funktionsweise
+
+## Anwendungen
+
+## Mein Beispiel
+
+## Quellen
