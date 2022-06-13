@@ -1,5 +1,5 @@
 <!--
-version:  0.0.7b
+version:  0.0.7c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -10,6 +10,7 @@ organization: Technische Universität Bergakademie Freiberg
 comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
+logo: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
 
 language: de
 narrator: Deutsch Female
@@ -43,11 +44,14 @@ translation: English translations/English.md
 
 **Gliederung**
 
-1. Geschichte
-2. Aufbau und Funktion
-3. Anwendungen
-4. Mein Beispiel
-5. Referenzen  
+<ol>
+	<li>Geschichte</li>
+	<li>Aufbau und Funktion</li>
+	<li>Anwendungen</li>
+	<li>Simulation</li>
+	<li>Mein Beispiel</li>
+	<li>Referenzen</li>
+</ol>
 
 ********************************************************************************
 
@@ -76,6 +80,14 @@ translation: English translations/English.md
 ## Aufbau und Funktion
 
 ## Anwendungen
+
+## Simulation
+
+* Simulink mit MathWorks (MATLAB)
+	-> Tutorials anschauen
+	-> 'Interaktives' Beispiel erstellen
+
+>https://www.mathworks.com/matlabcentral/fileexchange/43155-dsp-system-toolbox-support-package-for-arm-cortex-m-processors
 
 ## Mein Beispiel
 
