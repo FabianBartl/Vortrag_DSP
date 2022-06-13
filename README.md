@@ -1,11 +1,11 @@
 <!--
-version:  0.0.8b
+version:  0.0.8c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
 
 title: Digitaler Signalprozessor (DSP)
-comment: Funktionsweise des Digitalen Signalprozessors (DSP)
+comment: Funktionsweise des Digitalen Signalprozessors
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
 logo: ./img/preview.jpg
@@ -24,7 +24,7 @@ translation: English translations/English.md
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
 
-# Digitaler Signalprozessor (DSP)
+# @title
 
 | Parameter             | Kursinformationen                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------- |
