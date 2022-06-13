@@ -1,8 +1,11 @@
 <!--
-version:  0.0.5b
+version:  0.0.5c
 
-author:   Fabian Bartl
-email:    fabian@informatic-freak.de
+author: Fabian Bartl
+email: fabian@informatic-freak.de
+
+event: Praktikum Digitale Systeme
+organization: Technische Universität Freiberg
 
 comment: `Funktionsweise des Digitalen Signalprozessors (DSP)`
 
@@ -30,12 +33,13 @@ translation: English translations/English.md
 
 | Parameter             | Kursinformationen                                                                       |
 | --------------------- | --------------------------------------------------------------------------------------- |
-| **Veranstaltung:**    | `Praktikum Digitale Systeme`                                                            |
-| **Hochschule:**       | `Technische Universität Freiberg`                                                       |
+| **Veranstaltung:**    | @event                                                                                  |
+| **Hochschule:**       | @organization                                                                           |
 | **Inhalte:**          | @comment                                                                                |
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys)  |
 | **Autoren**           | @author                                                                                 |
 
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop)
 <!-- ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys) -->
 
 ## Gliederung
