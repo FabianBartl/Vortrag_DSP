@@ -1,5 +1,5 @@
 <!--
-version:  0.0.9e
+version:  0.0.10
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -34,8 +34,8 @@ translation: English translations/English.md
 | **Link auf GitHub:**  | [github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**           | @author                                                                        |
 
-<img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop">
-<!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys"> -->
+<img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&right_color=%23399193&left_color=%234b4b4b">
+<!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&right_color=%23399193&left_color=%234b4b4b"> -->
 
 
 ## Gliederung
