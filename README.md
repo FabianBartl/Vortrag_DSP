@@ -1,5 +1,5 @@
 <!--
-version:  0.0.9a
+version:  0.0.9b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -37,12 +37,8 @@ translation: English translations/English.md
 <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop">
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys"> -->
 
-                    {{0-2}}
-********************************************************************************
 
-<br><br><br>
-
-**Gliederung**
+## Gliederung
 
 <ol>
 	<li>Geschichte</li>
@@ -52,8 +48,6 @@ translation: English translations/English.md
 	<li>Mein Beispiel</li>
 	<li>Referenzen</li>
 </ol>
-
-********************************************************************************
 
 ## Geschichte
 
