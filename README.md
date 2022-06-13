@@ -1,5 +1,5 @@
 <!--
-version:  0.0.10a
+version:  0.0.10b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -26,13 +26,13 @@ translation: English translations/English.md
 
 # Digitaler Signalprozessor (DSP) <!-- @title -->
 
-| Parameter             | Kursinformationen                                                              |
-| --------------------- | ------------------------------------------------------------------------------ |
-| **Veranstaltung:**    | Praktikum Digitale Systeme                                                     |
-| **Hochschule:**       | Technische Universität Bergakademie Freiberg                                   |
-| **Inhalte:**          | @comment                                                                       |
-| **Link auf GitHub:**  | [github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
-| **Autoren**           | @author                                                                        |
+| Parameter             | Kursinformationen                                                                                |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| **Veranstaltung:**    | Praktikum Digitale Systeme                                                                       |
+| **Hochschule:**       | Technische Universität Bergakademie Freiberg                                                     |
+| **Inhalte:**          | @comment                                                                                         |
+| **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys/tree/main) |
+| **Autoren**           | @author                                                                                          |
 
 <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba">
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&left_color=%235b5b5b&right_color=%230fb3ba"> -->
