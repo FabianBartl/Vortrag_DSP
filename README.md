@@ -1,5 +1,5 @@
 <!--
-version:  0.0.6
+version:  0.0.6a
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -41,7 +41,7 @@ function lb(id="visitor-badge") {
 		css = { display: "block" };
 		badge.src = "https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys";
 	}
-	Object.assign(badge.style, css)
+	Object.assign(badge.style, css);
 }
 cs();
 lb();
@@ -65,7 +65,7 @@ translation: English translations/English.md
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**           | @author                                                                                |
 
-<img id="visitor-badge" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop" style="display:none;">
+<img id="visitor-badge" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop" style="display:block;" onload="cs();lb();">
 
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop"> -->
 <!-- <img src="https://img.shields.io/badge/visitors-3-blue"> -->
