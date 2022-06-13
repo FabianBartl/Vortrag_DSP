@@ -1,5 +1,5 @@
 <!--
-version:  0.0.2
+version:  0.0.3
 
 author:   Fabian Bartl
 email:    fabian@informatic-freak.de
@@ -12,7 +12,7 @@ language: de
 narrator: Deutsch Female
 
 mode: Presentation
-dark: true
+dark: false
 
 @onload
 // alert("Test");
@@ -24,7 +24,7 @@ import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/R
 translation: English translations/English.md
 -->
 
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md?token=GHSAT0AAAAAABUBLZODNGSZ3FZ5LBIYRFE6YVG6B3Q)
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
 
 # Digitaler Signalprozessor (DSP)
 
