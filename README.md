@@ -1,5 +1,5 @@
 <!--
-version:  0.0.5f
+version:  0.0.5g
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -33,11 +33,11 @@ translation: English translations/English.md
 
 | Parameter             | Kursinformationen                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------- |
-| **Veranstaltung:**    | \`@event\`                                                                             |
-| **Hochschule:**       | \`@organization\`                                                                      |
-| **Inhalte:**          | \`@comment\`                                                                           |
+| **Veranstaltung:**    | @event                                                                                 |
+| **Hochschule:**       | @organization                                                                          |
+| **Inhalte:**          | @comment                                                                               |
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
-| **Autoren**           | \`@author\`                                                                            |
+| **Autoren**           | @author                                                                                |
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop)
 <!-- ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys) -->
