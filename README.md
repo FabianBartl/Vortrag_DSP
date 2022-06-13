@@ -15,7 +15,7 @@ mode: Presentation
 dark: true
 
 @onload
-alert("Test")
+// alert("Test");
 @end
 
 import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
@@ -24,7 +24,7 @@ import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/R
 translation: English translations/English.md
 -->
 
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md?token=${{secrets.DISPLAY_TOKEN}})
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md?token=GHSAT0AAAAAABUBLZODNGSZ3FZ5LBIYRFE6YVG6B3Q)
 
 # Digitaler Signalprozessor (DSP)
 
@@ -36,8 +36,6 @@ translation: English translations/English.md
 | **Link auf den GitHub:** | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**              | @author                                                                                                                                                                              |
 
-![]()
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys)&nbsp;
 
 ---
-
-## 
