@@ -1,5 +1,5 @@
 <!--
-version:  0.0.7c
+version:  0.0.8
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -10,7 +10,7 @@ organization: Technische Universität Bergakademie Freiberg
 comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
-logo: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
+logo: https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
 
 language: de
 narrator: Deutsch Female
@@ -79,6 +79,8 @@ translation: English translations/English.md
 
 ## Aufbau und Funktion
 
+* https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
+
 ## Anwendungen
 
 ## Simulation
@@ -92,6 +94,8 @@ translation: English translations/English.md
 ## Mein Beispiel
 
 ## Referenzen
+
+### Literatur
 
 - https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
 - https://www.ibr.cs.tu-bs.de/courses/ws9798/seminar/haverkamp/seminar.html#385
@@ -110,3 +114,7 @@ translation: English translations/English.md
 	- https://www.sciencedirect.com/science/article/pii/B9780127345307500064
 	- https://www.sciencedirect.com/science/article/pii/B9780127345307500015
 	- https://www.sciencedirect.com/science/article/pii/B9780750689762000043
+
+### Bilder und Videos
+
+- https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
