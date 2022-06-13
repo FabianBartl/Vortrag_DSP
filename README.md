@@ -1,11 +1,11 @@
 <!--
-version:  0.0.7
+version:  0.0.7a
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
 
 event: Praktikum Digitale Systeme
-organization: Technische Universität Freiberg
+organization: Technische Universität Bergakademie Freiberg
 
 comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
@@ -40,17 +40,35 @@ translation: English translations/English.md
 
 ## Gliederung
 
-| Kurze Übersicht |                                   |
-| --------------- | --------------------------------- |
-| Geschichte      |                                   |
-| Funktionsweise  |                                   |
-| Anwendungen     |                                   |
-| Mein Beispiel   |                                   |
-| Referenzen      |                                   |
+1. Geschichte
+0. Aufbau und Funktion
+0. Anwendungen
+0. Mein Beispiel
+0. Referenzen  
 
 ## Geschichte
 
-## Funktionsweise
+                    {{0-2}}
+********************************************************************************
+
+**Begriff *DSP***
+
+| `digital signal processor`                            | `digital signal processing`                           |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| spezialisierter Mikroprozessor                        | algorithmische Verarbeitung digitaler Signale         |
+
+********************************************************************************
+
+                    {{1-2}}
+********************************************************************************
+
+**Einordnung**
+
+
+
+********************************************************************************
+
+## Aufbau und Funktion
 
 ## Anwendungen
 
@@ -58,11 +76,20 @@ translation: English translations/English.md
 
 ## Referenzen
 
-- https://www.elektroniknet.de/halbleiter/dsp-algorithmen-effizient-implementieren-teil-1.25937.html
 - https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
 - https://www.ibr.cs.tu-bs.de/courses/ws9798/seminar/haverkamp/seminar.html#385
-- http://www.krucker.ch/Skripten-Uebungen/DSPUeb/DSP%20Uebungen.html
-- https://www.minidsp.de/anwendungsbeispiele/
-- http://www.uibel.net/bauvor/bv_tutorials/dsp/dsp.html
 - http://www.elektro-archiv.de/archiv/d/dsp/
-- https://github.com/jgaeddert/liquid-dsp
+- https://technobyte.org/dsp-advantages-disadvantages-block-diagram-applications/
+
+- https://www.sciencedirect.com/topics/engineering/digital-signal-processing-algorithm
+	- https://www.sciencedirect.com/science/article/pii/B9780080977683000118
+	- https://www.sciencedirect.com/science/article/pii/B9780128207352000196
+	- https://www.sciencedirect.com/science/article/pii/B9781558608740500095
+	- https://www.sciencedirect.com/science/article/pii/B9780081006290000013
+	- https://www.sciencedirect.com/science/article/pii/B9780128045473000012
+
+- https://www.sciencedirect.com/topics/computer-science/digital-signal-processing-algorithm
+	- https://www.sciencedirect.com/science/article/pii/B9780123914903000114
+	- https://www.sciencedirect.com/science/article/pii/B9780127345307500064
+	- https://www.sciencedirect.com/science/article/pii/B9780127345307500015
+	- https://www.sciencedirect.com/science/article/pii/B9780750689762000043
