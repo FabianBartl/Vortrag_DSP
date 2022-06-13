@@ -1,16 +1,14 @@
 <!--
-version:  0.0.8a
+version:  0.0.8b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
 
-event: Praktikum Digitale Systeme
-organization: Technische Universität Bergakademie Freiberg
-
+title: Digitaler Signalprozessor (DSP)
 comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
-logo: img/
+logo: ./img/preview.jpg
 
 language: de
 narrator: Deutsch Female
@@ -30,8 +28,8 @@ translation: English translations/English.md
 
 | Parameter             | Kursinformationen                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------- |
-| **Veranstaltung:**    | @event                                                                                 |
-| **Hochschule:**       | @organization                                                                          |
+| **Veranstaltung:**    | Praktikum Digitale Systeme                                                             |
+| **Hochschule:**       | Technische Universität Bergakademie Freiberg                                           |
 | **Inhalte:**          | @comment                                                                               |
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**           | @author                                                                                |
