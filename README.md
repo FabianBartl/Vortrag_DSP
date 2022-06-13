@@ -1,13 +1,13 @@
 <!--
-version:  0.0.5d
+version:  0.0.5f
 
-author: `Fabian Bartl`
+author: Fabian Bartl
 email: fabian@informatic-freak.de
 
-event: `Praktikum Digitale Systeme`
-organization: `Technische Universität Freiberg`
+event: Praktikum Digitale Systeme
+organization: Technische Universität Freiberg
 
-comment: `Funktionsweise des Digitalen Signalprozessors (DSP)`
+comment: Funktionsweise des Digitalen Signalprozessors (DSP)
 
 icon: https://upload.wikimedia.org/wikipedia/commons/d/de/Logo_TU_Bergakademie_Freiberg.svg
 
@@ -31,13 +31,13 @@ translation: English translations/English.md
 
 # Digitaler Signalprozessor (DSP)
 
-| Parameter             | Kursinformationen                                                                       |
-| --------------------- | --------------------------------------------------------------------------------------- |
-| **Veranstaltung:**    | @event                                                                                  |
-| **Hochschule:**       | @organization                                                                           |
-| **Inhalte:**          | @comment                                                                                |
-| **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys)  |
-| **Autoren**           | @author                                                                                 |
+| Parameter             | Kursinformationen                                                                      |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| **Veranstaltung:**    | \`@event\`                                                                             |
+| **Hochschule:**       | \`@organization\`                                                                      |
+| **Inhalte:**          | \`@comment\`                                                                           |
+| **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
+| **Autoren**           | \`@author\`                                                                            |
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop)
 <!-- ![visitors](https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys) -->
@@ -46,12 +46,11 @@ translation: English translations/English.md
 
 | Kurze Übersicht |                                   |
 | --------------- | --------------------------------- |
-| Geschichte und Einordnung    |                    |
-| Aufbau          | Elektrische Funktionsweise        |
-| Datenübertragung | Datenpakete, Prioritäten, Getriggerte Komponenten|
-| Anwendung IRL   | Lichtanlage Golf                  |
-| CAN auf dem STM32    | CAN-Transceiver                   |
-| Anwendung TFY   | Überraschung :)                   |
+| Geschichte      |                                   |
+| Funktionsweise  |                                   |
+| Anwendungen     |                                   |
+| Mein Beispiel   |                                   |
+| Referenzen      |                                   |
 
 ## Geschichte
 
