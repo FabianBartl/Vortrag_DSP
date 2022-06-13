@@ -24,14 +24,14 @@ import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/R
 translation: English translations/English.md
 -->
 
-[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://github.com/FabianBartl/DSP-DigSys/blob/main/README.md)
+[![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md?token=${{secrets.DISPLAY_TOKEN}})
 
 # Digitaler Signalprozessor (DSP)
 
 | Parameter                | Kursinformationen                                                                                                                                                                    |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Veranstaltung:**       | `Praktikum Digitale Systeme`                                                                                                                                                      |
-| **Hochschule:**          | `Technische Universit‰t Freiberg`                                                                                                                                                    |
+| **Hochschule:**          | `Technische Universit√§t Freiberg`                                                                                                                                                    |
 | **Inhalte:**             | `Funktionsweise des Digitalen Signalprozessors (DSP)`                                                                                            |
 | **Link auf den GitHub:** | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys) |
 | **Autoren**              | @author                                                                                                                                                                              |
