@@ -1,5 +1,5 @@
 <!--
-version:  0.0.11h
+version: 0.0.11i
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -45,7 +45,7 @@ setCookie("_vb", page, 1, "h");
 | **Autoren**          | @author                                                                                          |
 | **Version**          | V @version                                                                                       |
 
-<img id="visitor-badge" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true" onload='let url="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",badge=document.getElementById("visitor-badge"),page=window.location.search.split(".com")[1].slice(1),cookie=getCookie("_vb");cookie&&cookie.includes(page)?badge.src=url+"&query_only=true":badge.src=url;'>
+<img id="visitor-badge" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true" onload='function getCookie(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let url="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",badge=document.getElementById("visitor-badge"),page=window.location.search.split(".com")[1].slice(1),cookie=getCookie("_vb");cookie&&cookie.includes(page)?badge.src=url+"&query_only=true":badge.src=url;'>
 
 ## Gliederung
 
