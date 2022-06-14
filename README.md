@@ -1,5 +1,5 @@
 <!--
-version:  0.0.11b
+version:  0.0.11c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -30,7 +30,8 @@ function getCookie(t){let e=t+"=",n=document.cookie.split(";");for(let t=0;t<n.l
 
 function createSession() {
 	let page = window.location.search.split(".com")[1].slice(1);
-	let hash = CryptoJS.MD5(page).toString().slice(0, 3);
+	let hash = page;
+	// let hash = CryptoJS.MD5(page).toString().slice(0, 3);
 	let cookie = getCookie("_vb");
 	
 	if (cookie != null) {
