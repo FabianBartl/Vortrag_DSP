@@ -1,5 +1,5 @@
 <!--
-version:  0.0.11d
+version:  0.0.11e
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -71,14 +71,14 @@ displayVisitorBadge();
 
 # Digitaler Signalprozessor (DSP) <!-- @title -->
 
-| Parameter             | Kursinformationen                                                                                |
-| --------------------- | ------------------------------------------------------------------------------------------------ |
-| **Veranstaltung:**    | Praktikum Digitale Systeme                                                                       |
-| **Hochschule:**       | Technische Universität Bergakademie Freiberg                                                     |
-| **Inhalte:**          | @comment                                                                                         |
-| **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys/tree/main) |
-| **Autoren**           | @author                                                                                          |
-| **Version**           | V @version                                                                                       |
+| Parameter            | Kursinformationen                                                                                |
+| -------------------- | ------------------------------------------------------------------------------------------------ |
+| **Veranstaltung**    | Praktikum Digitale Systeme                                                                       |
+| **Hochschule**       | Technische Universität Bergakademie Freiberg                                                     |
+| **Inhalte**          | @comment                                                                                         |
+| **Link auf GitHub**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys/tree/main) |
+| **Autoren**          | @author                                                                                          |
+| **Version**          | V @version                                                                                       |
 
 <img id="visitor-badge" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true" onload="displayVisitorBadge();">
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true"> -->
