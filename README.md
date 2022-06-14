@@ -1,5 +1,5 @@
 <!--
-version:  0.0.11e
+version:  0.0.11f
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -17,10 +17,10 @@ mode: Presentation
 dark: false
 
 script: scripts.js
-        https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
+script: https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
 
-import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
-         https://github.com/LiaTemplates/AVR8js/main/README.md
+import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
+import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 translation: English translations/English.md
 
