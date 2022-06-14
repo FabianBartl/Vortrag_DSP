@@ -1,5 +1,5 @@
 <!--
-version:  0.0.10c
+version:  0.0.11
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -20,6 +20,11 @@ import:  https://raw.githubusercontent.com/liascript-templates/plantUML/master/R
          https://github.com/LiaTemplates/AVR8js/main/README.md
 
 translation: English translations/English.md
+
+@onload
+function setCookie(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+setCookie("test_cookie", "test_value", 1, "h");
+@end
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
@@ -34,8 +39,8 @@ translation: English translations/English.md
 | **Link auf GitHub:**  | [https://github.com/FabianBartl/DSP-DigSys](https://github.com/FabianBartl/DSP-DigSys/tree/main) |
 | **Autoren**           | @author                                                                                          |
 
-<img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba">
-<!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&left_color=%235b5b5b&right_color=%230fb3ba"> -->
+<img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true">
+<!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true"> -->
 
 <!--
 lighter:
