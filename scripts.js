@@ -3,31 +3,33 @@ function getCookie(t){let e=t+"=",n=document.cookie.split(";");for(let t=0;t<n.l
 
 function createSession() {
 	let page = window.location.search.split(".com")[1].slice(1);
-	let hash = window.location.hash.slice(1);
-	let hashes = getCookie("_vb");
-	if (hashes != null) {
-		if (!hashes.includes(hash)) {
-			setCookie("_vb", hashes+","+hash, 1, "h");
+	let hash = CryptoJS.MD5(page).toString().slice(0, 3);
+	let cookie = getCookie("_vb");
+	
+	if (cookie != null) {
+		if (!cookie.includes(hash)) {
+			setCookie("_vb", cookie+","+hash, 1, "h");
 		}
 	} else {
-		setCookie("_vb", page+":"+hash, 1, "h");
+		setCookie("_vb", hash, 1, "h");
 	}
 }
 
-displayVisitorBadge() {
+displayVisitorBadge(id="visitor-badge") {
 	let url = "https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba";
-	let badge = "visitor-badge";
-	let page = window.location.search.split(".com")[1].slice(1);
-	let hash = window.location.hash.slice(1);
-	let hashes = getCookie("_vb");
+	let badge = document.getElementById(id);
 	
-	if (getCookie("_vb").includes(page)) {
-		if (hashes != null) {
-			if (!hashes.includes(hash)) {
-				badge.src = url + "&query_only=true";
-			}
+	let page = window.location.search.split(".com")[1].slice(1);
+	let hash = CryptoJS.MD5(page).toString().slice(0, 3);
+	let cookie = getCookie("_vb");
+	
+	if (cookie != null) {
+		if (cookie.includes(hash)) {
+			badge.src = url + "&query_only=true";
 		} else {
 			badge.src = url;
 		}
+	} else {
+		badge.src = url;
 	}
 }
