@@ -1,5 +1,5 @@
 <!--
-version:  0.0.11f
+version:  0.0.11g
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -48,7 +48,8 @@ displayVisitorBadge(id="visitor-badge") {
 	let badge = document.getElementById(id);
 	
 	let page = window.location.search.split(".com")[1].slice(1);
-	let hash = CryptoJS.MD5(page).toString().slice(0, 3);
+	let hash = page;
+	// let hash = CryptoJS.MD5(page).toString().slice(0, 3);
 	let cookie = getCookie("_vb");
 	
 	if (cookie != null) {
@@ -84,6 +85,7 @@ displayVisitorBadge();
 <!-- <img src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys&left_color=%235b5b5b&right_color=%230fb3ba&query_only=true"> -->
 
 <!--
+# %23
 lighter:
 	left:	#5b5b5b
 	right:	#0fb3ba
