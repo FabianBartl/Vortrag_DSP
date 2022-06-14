@@ -1,5 +1,5 @@
 <!--
-version: 0.0.11j
+version: 0.0.11k
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -16,20 +16,10 @@ narrator: Deutsch Female
 mode: Presentation
 dark: false
 
-script: scripts.js
-script: https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
-
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 translation: English translations/English.md
-
-@onload
-function setCookie(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
-function getCookie(t){let e=t+"=",n=document.cookie.split(";");for(let t=0;t<n.length;t++){let l=n[t];for(;" "==l.charAt(0);)l=l.substring(1);if(0==l.indexOf(e))return l.substring(e.length,l.length)}return null}
-let page = window.location.search.split(".com")[1].slice(1);
-setCookie("_vb", page, 1, "h");
-@end
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
