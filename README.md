@@ -1,5 +1,5 @@
 <!--
-version: 0.0.11s
+version: 0.0.11t
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -18,6 +18,9 @@ dark: false
 
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
+
+link: https://pyscript.net/alpha/pyscript.css
+script: https://pyscript.net/alpha/pyscript.js
 
 translation: English translations/English.md
 -->
@@ -42,6 +45,10 @@ let url="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-de
 cookie&&cookie.includes(page)?badge.src=url+"&query_only=true":badge.src=url;
 setCookie("_vb", page, 1, "h");
 '>
+
+<py-script>
+print("Test")
+</py-script>
 
 ## Gliederung
 
