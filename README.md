@@ -1,5 +1,5 @@
 <!--
-version: 0.0.11t
+version: 0.0.11o
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -19,7 +19,6 @@ dark: false
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
-link: https://pyscript.net/alpha/pyscript.css
 script: https://pyscript.net/alpha/pyscript.js
 
 translation: English translations/English.md
