@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12c
+version: 0.0.12d
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -45,7 +45,7 @@ translation: English translations/English.md
 
 1. Was ist ein DSP & Wofür ist es gut?
 2. Entwicklung
-3. Funktionsweise & Features <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
+3. Funktionsweise & Features <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen; Features: MCU, 1-Takt Hardware Multiplizierer / Dividierer -->
 4. Low-Pass-Filter Simulation in Simulink
 5. Anwendung auf dem STM32F4 Nucleo Board
 6. Referenzen
@@ -54,8 +54,8 @@ translation: English translations/English.md
 
 **Begriff *DSP***
 
-* `digital signal processor`: spezialisierter Mikroprozessor
-* `digital signal processing`: algorithmische Verarbeitung digitaler Signale
+* `digital signal processor` -> spezialisierter Mikroprozessor
+* `digital signal processing` -> algorithmische Verarbeitung digitaler Signale
 
 ## Entwicklung
 
