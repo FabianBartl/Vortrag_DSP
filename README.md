@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12e
+version: 0.0.12f
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -54,14 +54,49 @@ translation: English translations/English.md
 
 **Begriff *DSP***
 
-* `digital signal processor` -> spezialisierter Mikroprozessor
 * `digital signal processing` -> algorithmische Verarbeitung digitaler Signale
+* `digital signal processor`  -> spezialisierter Mikroprozessor
+
+                    {{1-2}}
+********************************************************************************
+
+**Anwendungen**
+
+- Realisierung verschiedener Filter zur Regelung
+- Moderne Antriebe: Überwachung vieler analoger Werte durch Sensoren
+- Audioverarbeitung: High/Low-Pass-Filter, Noise-Reduction, ...
+
+********************************************************************************
 
 ## Entwicklung
 
 ## Funktionsweise & Features
 
 * https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
+
+                    {{0-3}}
+********************************************************************************
+
+**Funktionsweise**
+
+1. analoges Signal digitalisieren `ADC`
+2. verschiedene Algorithmen bzw. Filter anwenden
+3. Ergebnis in analoges Signal umwandeln `DAC`
+
+<!-- ╭╮│╰╯┤─├┴└ -->
+
+```text @plantUML.png
+@startuml
+ascii
+ │   ╭╮      ╭───     +-----+     +-----*-------*-*     +-------------+     +-------------*-*     +-----+     │           ╭─── 
+ │   ││  ╭───╯        |     |     |-----|---*-* | |     |             |     |---------*-* | |     |     |     │       ╭───╯    
+ │   │╰──╯        --> | ADC | --> |-----|-* | | | | --> | Algorithmus | --> |-----*-* | | | | --> | DAC | --> │   ╭───╯        
+ │───╯                |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |     │───╯            
+ └───────────────     +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+     └─────────────── 
+@enduml
+```
+
+********************************************************************************
 
 ## Low-Pass-Filter Simulation in Simulink
 
