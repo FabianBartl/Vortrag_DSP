@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12
+version: 0.0.12a
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -44,15 +44,15 @@ translation: English translations/English.md
 ## Gliederung
 
 <ol>
-	<li>Geschichte</li>
-	<li>Aufbau und Funktion</li>
-	<li>Anwendungen</li>
-	<li>Simulation</li>
-	<li>Mein Beispiel</li>
+	<li>Was ist ein DSP & Wofür ist es gut?</li>
+	<li>Entwicklung</li>
+	<li>Aufbau & Funktionsweise</li> <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
+	<li>Low-Pass-Filter Simulation in Simulink</li>
+	<li>Anwendung auf dem STM32F4 Nucleo Board</li>
 	<li>Referenzen</li>
 </ol>
 
-## Geschichte
+## Was ist ein DSP & Wofür ist es gut?
 
 **Begriff *DSP***
 
@@ -60,21 +60,13 @@ translation: English translations/English.md
 | ----------------------------------------------------- | ----------------------------------------------------- |
 | spezialisierter Mikroprozessor                        | algorithmische Verarbeitung digitaler Signale         |
 
+## Entwicklung
 
-                    {{1-2}}
-********************************************************************************
-
-**Einordnung**
-
-********************************************************************************
-
-## Aufbau und Funktion
+## Aufbau & Funktionsweise
 
 * https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
 
-## Anwendungen
-
-## Simulation
+## Low-Pass-Filter Simulation in Simulink
 
 * Simulink mit MathWorks (MATLAB)
 	* Tutorials anschauen
@@ -82,7 +74,7 @@ translation: English translations/English.md
 
 >https://www.mathworks.com/matlabcentral/fileexchange/43155-dsp-system-toolbox-support-package-for-arm-cortex-m-processors
 
-## Mein Beispiel
+## Anwendung auf dem STM32F4 Nucleo Board
 
 ## Referenzen
 
