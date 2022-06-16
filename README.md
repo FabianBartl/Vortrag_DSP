@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12b
+version: 0.0.12c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -43,26 +43,23 @@ translation: English translations/English.md
 
 ## Gliederung
 
-<ol>
-	<li>Was&nbsp;ist&nbsp;ein&nbsp;DSP&nbsp;&amp; Wofür&nbsp;ist&nbsp;es&nbsp;gut?</li>
-	<li>Entwicklung</li>
-	<li>Aufbau &amp; Funktionsweise</li> <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
-	<li>Low-Pass-Filter Simulation in Simulink</li>
-	<li>Anwendung auf dem STM32F4 Nucleo Board</li>
-	<li>Referenzen</li>
-</ol>
+1. Was ist ein DSP & Wofür ist es gut?
+2. Entwicklung
+3. Funktionsweise & Features <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
+4. Low-Pass-Filter Simulation in Simulink
+5. Anwendung auf dem STM32F4 Nucleo Board
+6. Referenzen
 
 ## Was ist ein DSP & Wofür ist es gut?
 
 **Begriff *DSP***
 
-| `digital signal processor`                            | `digital signal processing`                           |
-| ----------------------------------------------------- | ----------------------------------------------------- |
-| spezialisierter Mikroprozessor                        | algorithmische Verarbeitung digitaler Signale         |
+* `digital signal processor`: spezialisierter Mikroprozessor
+* `digital signal processing`: algorithmische Verarbeitung digitaler Signale
 
 ## Entwicklung
 
-## Aufbau & Funktionsweise
+## Funktionsweise & Features
 
 * https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
 
@@ -75,6 +72,8 @@ translation: English translations/English.md
 >https://www.mathworks.com/matlabcentral/fileexchange/43155-dsp-system-toolbox-support-package-for-arm-cortex-m-processors
 
 ## Anwendung auf dem STM32F4 Nucleo Board
+
+* STM32F4-Serie mit ARM Cortex-M4F-Kern
 
 ## Referenzen
 
