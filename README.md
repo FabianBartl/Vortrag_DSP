@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12g
+version: 0.0.12h
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -106,6 +106,13 @@ translation: English translations/English.md
 ## Anwendung auf dem STM32F4 Nucleo Board
 
 * STM32F4-Serie mit ARM Cortex-M4F-Kern
+
+**Motorsteurung mittels Joystick**
+
+* schnelle Reaktionszeit (84 MHz)
+* genaue Bewegung (noise reduction)
+* Joystick X/Y-Achse -> zwei Motoren gleichzeitig (genug Timer, ADC, DAC)
+* Joystick Z-Achse -> Interrupt auslösen für Motorstop (pin-change interrupt?)
 
 ## Referenzen
 
