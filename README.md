@@ -1,5 +1,5 @@
 <!--
-version: 0.0.11v
+version: 0.0.11w
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -44,10 +44,6 @@ let url="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-de
 cookie&&cookie.includes(page)?badge.src=url+"&query_only":badge.src=url;
 setCookie("_vb", page, 1, "h");
 '>
-
-<py-script>
-print("Test")
-</py-script>
 
 ## Gliederung
 
