@@ -1,5 +1,5 @@
 <!--
-version: 0.0.12a
+version: 0.0.12b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -44,9 +44,9 @@ translation: English translations/English.md
 ## Gliederung
 
 <ol>
-	<li>Was ist ein DSP & Wofür ist es gut?</li>
+	<li>Was&nbsp;ist&nbsp;ein&nbsp;DSP&nbsp;&amp; Wofür&nbsp;ist&nbsp;es&nbsp;gut?</li>
 	<li>Entwicklung</li>
-	<li>Aufbau & Funktionsweise</li> <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
+	<li>Aufbau &amp; Funktionsweise</li> <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen -->
 	<li>Low-Pass-Filter Simulation in Simulink</li>
 	<li>Anwendung auf dem STM32F4 Nucleo Board</li>
 	<li>Referenzen</li>
