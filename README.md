@@ -72,7 +72,7 @@ translation: English translations/English.md
 
 ## Funktionsweise & Features
 
-* https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
+<!-- * https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html -->
 
                     {{0-3}}
 ********************************************************************************
@@ -132,6 +132,7 @@ translation: English translations/English.md
 ********************************************************************************
 
 * https://www.sciencedirect.com/topics/engineering/digital-signal-processing-algorithm
+
 	* https://www.sciencedirect.com/science/article/pii/B9780080977683000118
 	* https://www.sciencedirect.com/science/article/pii/B9780128207352000196
 	* https://www.sciencedirect.com/science/article/pii/B9781558608740500095
@@ -144,6 +145,7 @@ translation: English translations/English.md
 ********************************************************************************
 
 * https://www.sciencedirect.com/topics/computer-science/digital-signal-processing-algorithm
+
 	* https://www.sciencedirect.com/science/article/pii/B9780123914903000114
 	* https://www.sciencedirect.com/science/article/pii/B9780127345307500064
 	* https://www.sciencedirect.com/science/article/pii/B9780127345307500015
