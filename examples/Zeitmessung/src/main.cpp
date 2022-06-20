@@ -8,44 +8,44 @@
 
 // interrupt variables (for timer)
 volatile unsigned int timer_overflow_counter = 0;
-volatile unsigned int timer_start = 0, timer_end = 0;
+volatile unsigned int timer_start = 0, timer_stop = 0;
 
 // timer variables
 unsigned int timer_max = 0xffff;
+unsigned long int timer_ticks = 0;
 double timer_sec = 0;
 
-// print debug and info messages
-void debug(char* msg) { Serial.println(msg); Serial.flush(); }
+void info(char* msg) { Serial.println(msg); Serial.flush(); }
 
 // print result
 void result()
 {
   // disable interrupts while calculate results
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
-    timer_sec = ((double)timer_start / (double)timer_max + timer_overflow_counter + (double)timer_end / (double)timer_max) / 4.0;
-    Serial.print(timer_sec);
-    Serial.println(" sec");
+    // timer_sec = ((double)timer_start / (double)timer_max + timer_overflow_counter + (double)timer_stop / (double)timer_max) / 4.0;
+    timer_sec = ((double)timer_start / (double)timer_max + timer_overflow_counter + (double)timer_stop / (double)timer_max);
+    timer_ticks = timer_max - timer_start + timer_overflow_counter * F_CPU + timer_stop;
+
+    for (int i=0; i<10; i++) { Serial.println(" "); }
+    Serial.print("clk ~ ");  Serial.println(timer_ticks);
+    Serial.print("sec ~ ");  Serial.println(timer_sec);
     Serial.flush();
   }
 }
 
 // interrupt events
-ISR(TIMER1_OVF_vect)
-{
-  timer_overflow_counter++;
-}
+ISR(TIMER1_OVF_vect) { timer_overflow_counter++; }
 
 ISR(INT0_vect)
 {
   timer_overflow_counter = 0;
   timer_start = TCNT1;
-  debug("start");
+  info("go");
 }
 
 ISR(INT1_vect)
 {
-  timer_end = TCNT1;
-  debug("stop");
+  timer_stop = TCNT1;
   result();
 }
 
@@ -53,31 +53,26 @@ ISR(INT1_vect)
 int main(void)
 {
   Serial.begin(9600);
-  debug("\ninit");
+  info("\ninit");
 
   // setup pins
   DDRD &= ~((1 << DDD2) | (1 << DDD3));
   PORTD |= (1 << PD2) | (1 << PD3);
 
   // setup timer
-  TCCR1A = 0; // normal mode
-  TCCR1B |= (1 << CS11) | (1 << CS10); // prescaler: clk/64 (eig. komplett sinnlos)
-
-  // setup timer interrupt
-  TIMSK1 |= (1 << TOIE1);
+  TCCR1A = 0;               // normal mode
+  TCCR1B |= (1 << CS10);    // no prescaler
+  TIMSK1 |= (1 << TOIE1);   // overflow interrup
 
   // setup external interrupts
   EICRA |= (1 << ISC10) | (1 << ISC00);
   EIMSK |= (1 << INT1) | (1 << INT0);
 
   // enable interrupts
+  info("conf");
   sei();
-  debug("configuration finished");
 
   // wait for interrupts
-  debug("wait forever");
   for(;;);
-
-  debug("not possible output");
   return -1;
 }

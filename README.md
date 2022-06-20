@@ -1,5 +1,5 @@
 <!--
-version: 0.0.13b
+version: 0.0.13c
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -14,7 +14,7 @@ language: de
 narrator: Deutsch Female
 
 mode: Presentation
-dark: true
+dark: false
 
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
