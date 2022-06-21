@@ -5,5 +5,6 @@ html.lia-variant-dark {
 }
 
 svg { background-color: transparent !important; }
-
 html.lia-variant-dark * .lia_header__logo { filter: brightness(200%) !important; }
+
+.lia-effect { margin-top: 2em !important; }

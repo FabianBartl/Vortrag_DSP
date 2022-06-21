@@ -1,5 +1,5 @@
 <!--
-version: 0.0.14
+version: 0.0.15
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -14,9 +14,8 @@ language: de
 narrator: Deutsch Female
 
 mode: Presentation
-
 dark: true
-link: ./styles/better_colors.css
+link: ./styles/improvements.css
 
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
@@ -26,7 +25,7 @@ script: ./scripts/pyscript_alpha.min.js
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
 
-# Digitaler Signalprozessor (DSP) <!-- @title -->
+# Digitaler Signalprozessor (DSP)
 
 | Parameter            | Kursinformationen                                                                                |
 | -------------------- | ------------------------------------------------------------------------------------------------ |
@@ -37,43 +36,77 @@ script: ./scripts/pyscript_alpha.min.js
 | **Autoren**          | @author                                                                                          |
 | **Version**          | V @version                                                                                       |
 
-<img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,1,"h");'>
+<img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
 
-<img id="c" src="img/hidden_pixel.png" onload='console.log("hidden pixel loaded");'>
+<img src="img/hidden_pixel.png" onload='console.log("hidden script loaded");' style="width:0px;height:0px;overflow:hidden;">
 
 ## Gliederung
 
-1. Was ist ein DSP & Wofür ist es gut?
-2. Entwicklung
-3. Funktionsweise & Features <!-- Funktionsweise: ADC, DAC, Beispiele DSP Algorithmen; Features: MCU, 1-Takt Hardware Multiplizierer / Dividierer -->
-4. Vergleich AVR- und ARM-Assembly
-5. Low-Pass-Filter Simulation in Simulink
-6. Anwendung auf dem STM32F4 Nucleo Board
-7. Referenzen
-8. Tools & Issues
+1. DSP?
+2. Funktionsweise & Features
+3. Vergleich AVR- und ARM-Assembly
+4. Low-Pass-Filter Simulation in Simulink
+5. Anwendung auf dem STM32F4 Nucleo Board
+6. Referenzen
+7. Tools, Issues & Tricks
 
-## Was ist ein DSP & Wofür ist es gut?
-
-                    {{0}}
-********************************************************************************
-
-**Begriff *DSP***
+## DSP?
 
 - `digital signal processing` -> algorithmische Verarbeitung digitaler Signale
 - `digital signal processor`  -> spezialisierter Mikroprozessor
 
-********************************************************************************
-
-                    {{1}}
+  {{1}}
 ********************************************************************************
 
 **Anwendungen**
 
-- Ersatz für Aufwendige analoge Filtertechnik
+- Ersatz für aufwendigere analoge Filtertechnik
 - Realisierung von Steuer-/Regelungstechnik
+- Audioverarbeitung
 
-- Moderne Antriebe: Überwachung vieler analoger Werte durch Sensoren
-- Audioverarbeitung: High/Low-Pass-Filter, Noise-Reduction, Echo-/Hall-Effekte, Signalanalyse
+********************************************************************************
+
+  {{2}}
+********************************************************************************
+
+**Kategorien**
+
+1. Floating-Point DSP
+2. Fixed-Point DSP
+
+********************************************************************************
+
+### Floating-Point DSP
+
+- großer Zahlenbereich, höhere Genauigkeit
+- leichter zu programmieren
+- automatische Skalierung der Zahlen (IEEE 754 Format)
+- FPU[[^?]](# "Floating Point Unit") erhöht Stromverbrauch und Kosten
+
+  {{1}}
+********************************************************************************
+
+**Geeignet für Produkte**
+
+ - in niedriger Stückzahl
+ - mit sehr dynamischen Zahlenbereich
+ - Bsp: Audioanwendungen, Medizinische oder Militärische Geräte
+
+********************************************************************************
+
+### Fixed-Point DSP
+
+- keine FPU[[^?]](# "Floating Point Unit") verbaut -> Verwendung von Integer Operationen
+- besser für Eingebettete Systeme geeignet, da günstiger und stromsparender
+
+  {{1}}
+********************************************************************************
+
+**Geeignet für Produkte**
+
+- in großer Strückzahl
+- mit abschätzbarem Zahlenbereich
+- Videoanwendungen, Spracherkennung, Kabellose Kommunikation
 
 ********************************************************************************
 
@@ -83,15 +116,38 @@ script: ./scripts/pyscript_alpha.min.js
 
 ## Funktionsweise & Features
 
-<!-- https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html -->
+https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
 
 ### Funktionsweise
 
-1. analoges Signal digitalisieren `ADC`
-2. verschiedene Algorithmen bzw. Filter anwenden
-3. Ergebnis in analoges Signal umwandeln `DAC`
+  {{0-2}}
+********************************************************************************
 
-<!-- ╭╮│╰╯┤─├┴└ -->
+<ol style="color:transparent !important;"><li><br></li></ol>
+
+2. (externes) analoges Signal mit `ADC` digitalisieren
+3. verschiedene Algorithmen bzw. Filter anwenden
+4. Ergebnis in analoges Signal umwandeln mit `DAC`
+
+<ol style="color:transparent !important;"><li><br></li></ol>
+
+********************************************************************************
+
+  {{2}}
+********************************************************************************
+
+1. analoger Low-Pass-Filter, um Frequenzen unterhalb der *Nyquist-Frequenz*[^1] zu entfernen
+2. (externes) analoges Signal mit `ADC` digitalisieren
+3. verschiedene Algorithmen bzw. Filter anwenden
+4. Ergebnis in analoges Signal umwandeln mit `DAC`
+5. analoger Low-Pass-Filter, um Ergebnisfrequenzen einzugrenzen 
+
+********************************************************************************
+
+<img data="╭╮│╰╯┤─├┴└" src="img/hidden_pixel.png" style="width:0px;height:0px;overflow:hidden;">
+
+  {{1}}
+********************************************************************************
 
 ```ascii
  │   ╭╮      ╭───     +-----+     +-----*-------*-*     +-------------+     +-------------*-*     +-----+     │           ╭─── 
@@ -100,6 +156,15 @@ script: ./scripts/pyscript_alpha.min.js
  │───╯                |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |     │───╯            
  └───────────────     +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+     └─────────────── 
 ```
+
+********************************************************************************
+
+[^1]: Die **Nyquist-Frequenz** ist definiert als halbe Abtastfrequenz eines zeitlich diskreten Systems:
+  $$f_{nyquist}=\frac12\cdot f_{abtast}$$
+  und dient der Verhinderung des Alias-Effekts.<br>
+  Nur wenn alle anteiligen Frequenzen des Signals kleiner als die Nyquist-Frequenz sind, kann das abgetastete Signal genau rekontruiert werden.
+
+  -- [Wikipedia](https://de.wikipedia.org/wiki/Nyquist-Frequenz)
 
 ### Features
 
@@ -237,7 +302,15 @@ main:
 
 ### Literatur
 
-                    {{0-3}}
+  {{0}}
+********************************************************************************
+
+- Dr. Yifeng Zhu (Juni 2018). *Embedded Systems with ARM Cortex-M Microcontrollers in Assembly Language and C* (3. Aufl.).<br>
+  E-Man Press LLC, 2017. ISBN 978-0-9826926-6-0
+
+********************************************************************************
+
+  {{1}}
 ********************************************************************************
 
 - https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
@@ -249,48 +322,23 @@ main:
 
 ********************************************************************************
 
-                    {{1-3}}
-********************************************************************************
-
-- https://www.sciencedirect.com/topics/engineering/digital-signal-processing-algorithm
-
-	- https://www.sciencedirect.com/science/article/pii/B9780080977683000118
-	- https://www.sciencedirect.com/science/article/pii/B9780128207352000196
-	- https://www.sciencedirect.com/science/article/pii/B9781558608740500095
-	- https://www.sciencedirect.com/science/article/pii/B9780081006290000013
-	- https://www.sciencedirect.com/science/article/pii/B9780128045473000012
-
-********************************************************************************
-
-                    {{2-3}}
-********************************************************************************
-
-- https://www.sciencedirect.com/topics/computer-science/digital-signal-processing-algorithm
-
-	- https://www.sciencedirect.com/science/article/pii/B9780123914903000114
-	- https://www.sciencedirect.com/science/article/pii/B9780127345307500064
-	- https://www.sciencedirect.com/science/article/pii/B9780127345307500015
-	- https://www.sciencedirect.com/science/article/pii/B9780750689762000043
-
-********************************************************************************
-
 ### Bilder und Videos
 
-                    {{0-2}}
+  {{0}}
 ********************************************************************************
 
 - https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
 
 ********************************************************************************
 
-                    {{1-2}}
+  {{1}}
 ********************************************************************************
 
 - 
 
 ********************************************************************************
 
-## Tools & Issues
+## Tools, Issues & Tricks
 
 ### Tools
 
@@ -309,3 +357,13 @@ main:
 - Im Dark-Mode ist die Liste der Editor-Stile in den Einstellungen falsch koloriert
 - ASCII-Art wird im Dark-Mode als Weiß-auf-Schwarz angezeigt
 - Inline-Code ist im Dark-Mode schlecht lesbar
+
+### Tricks
+
+- Tooltips[[^?]](# "Fancy Tooltip")
+
+- Hidden-Scripts für GitHub
+  <img src="img/hidden_pixel.png" onmouseover='alert("script hidden in img tag of 1x1 transparent pixel");' style="width: 10px; height: 10px; overflow: hidden;">
+
+- Cookie-basierte Besucherzähler Badge
+  <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
