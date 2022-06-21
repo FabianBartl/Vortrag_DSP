@@ -1,5 +1,5 @@
 <!--
-version: 0.0.13c
+version: 0.0.14
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -14,16 +14,14 @@ language: de
 narrator: Deutsch Female
 
 mode: Presentation
-dark: false
+
+dark: true
+link: ./styles/better_colors.css
 
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 script: ./scripts/pyscript_alpha.min.js
-
-link: ./styles/custom.css
-
-translation: English translations/English.md
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
@@ -41,6 +39,8 @@ translation: English translations/English.md
 
 <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,1,"h");'>
 
+<img id="c" src="img/hidden_pixel.png" onload='console.log("hidden pixel loaded");'>
+
 ## Gliederung
 
 1. Was ist ein DSP & Wofür ist es gut?
@@ -50,7 +50,7 @@ translation: English translations/English.md
 5. Low-Pass-Filter Simulation in Simulink
 6. Anwendung auf dem STM32F4 Nucleo Board
 7. Referenzen
-8. Tools
+8. Tools & Issues
 
 ## Was ist ein DSP & Wofür ist es gut?
 
@@ -122,7 +122,7 @@ int main()
 
 ---
 
-``` avr AVR-Assembly für Atmega328P
+``` asm AVR-Assembly für Atmega328P
 __SP_H__ = 0x3e
 __SP_L__ = 0x3d
 __SREG__ = 0x3f
@@ -290,9 +290,22 @@ main:
 
 ********************************************************************************
 
-## Tools
+## Tools & Issues
+
+### Tools
 
 - [Compiler Explorer](https://godbolt.org/)
 - [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
 - [VSC LiaScript Preview Extension](https://marketplace.visualstudio.com/items?itemName=LiaScript.liascript-preview)
 - [ASCII to SVG Editor](https://andre-dietrich.github.io/elm-svgbob/)
+
+### Issues
+
+- HTML-Kommentare werden in der VSC-Preview als Inahlt angezeigt
+- Eingerückte Anstriche funktionieren nicht
+- Links über Einblendungen sind nicht möglich
+- Einblendungen werden manchmal nicht erkannt
+- Wie kann der Stil von Code-Feldern in der Config festgelegt werden?
+- Im Dark-Mode ist die Liste der Editor-Stile in den Einstellungen falsch koloriert
+- ASCII-Art wird im Dark-Mode als Weiß-auf-Schwarz angezeigt
+- Inline-Code ist im Dark-Mode schlecht lesbar
