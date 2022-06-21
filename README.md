@@ -1,5 +1,5 @@
 <!--
-version: 0.15
+version: 0.16
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -43,12 +43,12 @@ script: ./scripts/pyscript_alpha.min.js
 ## Gliederung
 
 1. DSP?
-2. Funktionsweise & Features
-3. Vergleich AVR- und ARM-Assembly
-4. Low-Pass-Filter Simulation in Simulink
-5. Anwendung auf dem STM32F4 Nucleo Board
-6. Referenzen
-7. Tools, Issues & Tricks
+3. Entwicklung
+2. AVR- und ARM-Assembly
+3. FPU-Assembly
+4. Anwendung auf dem STM32F4 Nucleo Board
+5. Referenzen
+6. Tools, Issues & Tricks
 
 ## DSP?
 
@@ -75,6 +75,57 @@ script: ./scripts/pyscript_alpha.min.js
 2. Fixed-Point DSP
 
 ********************************************************************************
+
+  {{3-5}}
+********************************************************************************
+
+**Funktionsweise**
+
+<ol style="color:transparent !important;"><li><br></li></ol>
+
+1. (externes) analoges Signal mit `ADC` digitalisieren
+2. verschiedene Algorithmen bzw. Filter anwenden
+3. Ergebnis in analoges Signal umwandeln mit `DAC`
+
+<ol style="color:transparent !important;"><li><br></li></ol>
+
+********************************************************************************
+
+  {{5}}
+********************************************************************************
+
+**Funktionsweise**
+
+1. analoger Low-Pass-Filter, um Frequenzen unterhalb der *Nyquist-Frequenz*[^1] zu entfernen
+2. (externes) analoges Signal mit `ADC` digitalisieren
+3. verschiedene Algorithmen bzw. Filter anwenden
+4. Ergebnis in analoges Signal umwandeln mit `DAC`
+5. analoger Low-Pass-Filter, um Ergebnisfrequenzen einzugrenzen 
+
+********************************************************************************
+
+<img data="╭╮│╰╯┤─├┴└" src="img/hidden_pixel.png" style="width:0px;height:0px;overflow:hidden;">
+
+  {{4}}
+********************************************************************************
+
+```ascii
+ │   ╭╮      ╭───     +-----+     +-----*-------*-*     +-------------+     +-------------*-*     +-----+     │           ╭─── 
+ │   ││  ╭───╯        |     |     |-----|---*-* | |     |             |     |---------*-* | |     |     |     │       ╭───╯    
+ │   │╰──╯        --> | ADC | --> |-----|-* | | | | --> | Algorithmus | --> |-----*-* | | | | --> | DAC | --> │   ╭───╯        
+ │───╯                |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |     │───╯            
+ └───────────────     +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+     └─────────────── 
+```
+
+********************************************************************************
+
+[^1]: Die **Nyquist-Frequenz** ist definiert als halbe Abtastfrequenz eines zeitlich diskreten Systems:
+  $$f_{nyquist}=\frac12\cdot f_{abtast}$$
+  und dient der Verhinderung des Alias-Effekts.<br>
+  Nur wenn alle anteiligen Frequenzen des Signals kleiner als die Nyquist-Frequenz sind, kann das abgetastete Signal genau rekontruiert werden.
+
+  -- [Wikipedia](https://de.wikipedia.org/wiki/Nyquist-Frequenz)
+
 
 ### Floating-Point DSP
 
@@ -114,67 +165,7 @@ script: ./scripts/pyscript_alpha.min.js
 
 - 
 
-## Funktionsweise & Features
-
-https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
-
-### Funktionsweise
-
-  {{0-2}}
-********************************************************************************
-
-<ol style="color:transparent !important;"><li><br></li></ol>
-
-2. (externes) analoges Signal mit `ADC` digitalisieren
-3. verschiedene Algorithmen bzw. Filter anwenden
-4. Ergebnis in analoges Signal umwandeln mit `DAC`
-
-<ol style="color:transparent !important;"><li><br></li></ol>
-
-********************************************************************************
-
-  {{2}}
-********************************************************************************
-
-1. analoger Low-Pass-Filter, um Frequenzen unterhalb der *Nyquist-Frequenz*[^1] zu entfernen
-2. (externes) analoges Signal mit `ADC` digitalisieren
-3. verschiedene Algorithmen bzw. Filter anwenden
-4. Ergebnis in analoges Signal umwandeln mit `DAC`
-5. analoger Low-Pass-Filter, um Ergebnisfrequenzen einzugrenzen 
-
-********************************************************************************
-
-<img data="╭╮│╰╯┤─├┴└" src="img/hidden_pixel.png" style="width:0px;height:0px;overflow:hidden;">
-
-  {{1}}
-********************************************************************************
-
-```ascii
- │   ╭╮      ╭───     +-----+     +-----*-------*-*     +-------------+     +-------------*-*     +-----+     │           ╭─── 
- │   ││  ╭───╯        |     |     |-----|---*-* | |     |             |     |---------*-* | |     |     |     │       ╭───╯    
- │   │╰──╯        --> | ADC | --> |-----|-* | | | | --> | Algorithmus | --> |-----*-* | | | | --> | DAC | --> │   ╭───╯        
- │───╯                |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |     │───╯            
- └───────────────     +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+     └─────────────── 
-```
-
-********************************************************************************
-
-[^1]: Die **Nyquist-Frequenz** ist definiert als halbe Abtastfrequenz eines zeitlich diskreten Systems:
-  $$f_{nyquist}=\frac12\cdot f_{abtast}$$
-  und dient der Verhinderung des Alias-Effekts.<br>
-  Nur wenn alle anteiligen Frequenzen des Signals kleiner als die Nyquist-Frequenz sind, kann das abgetastete Signal genau rekontruiert werden.
-
-  -- [Wikipedia](https://de.wikipedia.org/wiki/Nyquist-Frequenz)
-
-### Features
-
-- Hardware-Dividierer / -Multiplizierer
-- Multiply-Accumulator zur diskreten Integration
-- 10 Kanäle ADC und DAC
-- 10 Timer
-- 84 MHz
-
-## Vergleich AVR- vs. ARM-Assembly
+## AVR- vs. ARM-Assembly
 
 ``` c C-Code
 int main()
@@ -273,24 +264,19 @@ main:
 
 -> 5 ASM Befehle -> xx Takte
 
-## Low-Pass-Filter Simulation in Simulink
+## FPU-Assembly
 
-- Simulink mit MathWorks (MATLAB)
-	- Tutorials anschauen
-	- 'Interaktives' Beispiel erstellen
+Hardwarebasierte Floating-point Operationen
 
->https://www.mathworks.com/matlabcentral/fileexchange/43155-dsp-system-toolbox-support-package-for-arm-cortex-m-processors
+### Features
+
+- digital signal processing instructions
+- floating-point instructions
 
 ## Anwendung auf dem Nucleo-64 Board
 
 - STM32F4-Serie mit ARM Cortex-M4F-Kern
-
-**Motorsteurung mittels Joystick**
-
-- schnelle Reaktionszeit (84 MHz)
-- genaue Bewegung (noise reduction)
-- Joystick X/Y-Achse -> zwei Motoren gleichzeitig (genug Timer, ADC, DAC)
-- Joystick Z-Achse -> Interrupt auslösen für Motorstop (pin-change interrupt?)
+- https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
 
 **Tonsteuerung mittels Ultrashall**
 
