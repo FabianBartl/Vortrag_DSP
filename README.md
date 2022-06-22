@@ -1,5 +1,5 @@
 <!--
-version: 0.18b
+version: 0.19
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -19,6 +19,8 @@ link: ./styles/improvements.css
 
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
+
+@com: <span title='@0'></span>
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
@@ -68,7 +70,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 - die meisten Allzweck-Mikroprozessoren und Betriebssysteme können DSP-Algorithmen erfolgreich ausführen
 - aber ein spezialisierter DSP bietet tendenziell eine kostengünstigere Lösung mit besserer Leistung
-<comment data="geringere Latenz, kleinerer Energieverbrauch"></comment> 
+@com(`geringere Latenz, kleinerer Energieverbrauch`)
 
 ********************************************************************************
 
@@ -102,9 +104,9 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **Anwendungen**
 
-- Regeltechnik <comment data="Motosteuerung"></comment>
-- Digitale Bild-, Ton- und Videoverarbeitung <comment data="Mischpulte, Soundkarten, JPEG-/MP3-Komprimierung"></comment>
-- Telekommunikation <comment data="Digital Radio, Telefonieren"></comment>
+- Regeltechnik @com(`Motosteuerung`)
+- Digitale Bild-, Ton- und Videoverarbeitung @com(`Mischpulte, Soundkarten, JPEG-/MP3-Komprimierung`)
+- Telekommunikation @com(`Digital Radio, Telefonieren`)
 - Ersatz für aufwendigere analoge Filtertechnik
 
 ********************************************************************************
@@ -116,8 +118,8 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **Floating-Point DSP**
 
-- großer Zahlenbereich, höhere Genauigkeit, automatische Skalierung der Zahlen (IEEE 754 Format)
-- FPU[[^?]](# "Floating Point Unit") erhöht Stromverbrauch und Kosten
+- großer Zahlenbereich, höhere Genauigkeit, automatische Skalierung der Zahlen (`IEEE 754`-Format)
+- `FPU`[[^?]](# "Floating-Point Unit") erhöht Stromverbrauch und Kosten
 
 ********************************************************************************
 
@@ -138,8 +140,8 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **Fixed-Point DSP**
 
-- keine FPU verbaut -> Verwendung von Integer Operationen
-- kompliziertere Programmierung <comment data="Zahlenbereich immer überprüfen, ob overflow auftritt"></comment>
+- keine `FPU` verbaut -> Verwendung von Integer Operationen
+- kompliziertere Programmierung @com(`Zahlenbereich immer überprüfen, ob overflow auftritt`)
 
 ********************************************************************************
 
@@ -163,9 +165,9 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 - TI[[^?]](# "Texas Instruments") entwickelte von 1976-78 den ersten *Speak & Spell*[^1], der einen `TMS5100` enthielt - der erste DSP der Branche
 - AMI[[^?]](# "American Microsystems") brachte 1978 den DSP `S2811` auf den Markt, dieser verfügte bereits über einen Hardware-Multiplikator
-<comment data="Wurde als Peripheriegerät für Motorola 6800 entwickelt, musste aber vom Host initialisiert werden. War auf dem Markt nicht erfolgreich."></comment>
+@com(`Wurde als Peripheriegerät für Motorola 6800 entwickelt, musste aber vom Host initialisiert werden. War auf dem Markt nicht erfolgreich.`)
 - Intel brachte 1979 den `2920` als "analogen Signalprozessor" auf den Markt, mit On-Chip- `ADC` / `DAC`, aber ohne Hardware-Multiplikator
-<comment data="War auf dem Markt nicht erfolgreich."></comment>
+@com(`War auf dem Markt nicht erfolgreich.`)
 
 ********************************************************************************
 
@@ -176,7 +178,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 - 1980 stellten AT&T und NEC[[^?]](# "Nippon Electric Corporation") die ersten eigenständigen und vollständigen DSPs auf der ISSCC[[^?]](# "International Solid-State Circuits Conference") vor, den `DSP1` und `NEC μPD7720`[^2]
 - der `NEC μPD7720` wurde für Sprachband-Anwendungen eingeführt und war einer der kommerziell erfolgreichsten frühen DSPs
-<comment data="Anwendungen, die Frequenzen der gesprochenen Sprache übermitteln"></comment>
+@com(`Anwendungen, die Frequenzen der gesprochenen Sprache übermitteln`)
 - 1983 stellte TI den DSP `TMS32010` vor, dieser basierte auf der Harward-Architektur, verfügte u.a. über `MAC`[[^?]](# "Multiply-Accumulate Operation")-Anweisungen und konnte mit 16-Bit-Zahlen arbeiten
 - ca. 390 ns Ausführungsdauer für eine `MAC`-Operation
 
@@ -200,7 +202,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 **3. Generation in den 1990er**
 
 - Anwendungsspezifische DSPs ermöglichten als Coprozessoren direkte Hardwarebeschleunigung sehr spezifischer und komplexer mathematischer Probleme 
-<comment data="Bsp.: Fourier-Transformation, Matrixoperationen"></comment>
+@com(`Bsp.: Fourier-Transformation, Matrixoperationen`)
 - einige Chips, wie der `Motorola MC68356`, nutzten mehrere Prozessorkerne zur Parallelisierung
 - Bsp.: `TI TMS320C541`, `TMS 320C80`
 
@@ -225,14 +227,14 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   -- [Wikipedia](https://en.wikipedia.org/wiki/Speak_%26_Spell_(toy)
 
 [^2]: ![](img/ST010_01.jpg)
-  Der von NEC 1980 entwickelte DSP `NEC μPD7720` und einer der populärsten DSPs dieser Zeit.
+  Der von NEC 1980 entwickelte DSP `NEC μPD7720` war einer der populärsten DSPs dieser Zeit.
 
   -- [Wikipedia](https://en.wikipedia.org/wiki/NEC_%C2%B5PD7720)
 
 [^3]: `SIMD` steht für **Single instruction, multiple data**, dieser Befehlssatz implementiert eine echte parallele Ausführung von gleichartigen Rechenoperationen auf Hardware-Ebene, die mit einem Befehlsaufruf mehrere Daten parallel verarbeiten.<br>
   `SIMD` eignet sich besonders gut für die Verarbeitung von Bild-, Ton- und Videodaten, da identische Operationen für zum Beispiel viele einzelne Bildpunkte ausgeführt werden müssen.
 
-  -- [Wikipedia](https://de.wikipedia.org/wiki/Flynnsche_Klassifikation#SIMD_(Single_Instruction,_Multiple_Data))
+  -- [Wikipedia](https://de.wikipedia.org/wiki/Flynnsche_Klassifikation#SIMD_(Single_Instruction,_Multiple_Data)
 
 ### Moderne DSPs
 
@@ -254,7 +256,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 - 1,2 GHz Taktrate
 - 8 MB 2nd Level Cache
 - 64 `DMA`-Kanäle
-- teilweise bis zu 8000 MIPS[[^?]](# "Mio. Anweisungen pro Sekunde")
+- teilweise bis zu 8000 MIPS[[^?]](# "Mio. Instruktionen pro Sekunde")
 - 8 Operationen pro Taktzyklus
 - kompatibel und vielen Peripheriegeräten und Bussen
 - unterstützen in der neuesten Generation Floating-Point und Fixed-Point Verarbeitung
@@ -280,17 +282,17 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{2}}
 ********************************************************************************
 
-1. analoger Low-Pass-Filter, um Frequenzen unterhalb der *Nyquist-Frequenz*[^1] zu entfernen
+1. analoger Low-Pass-Filter, um Frequenzen unterhalb der *Nyquist-Frequenz*[^1] zu entfernen @com(`Anti-Aliasing Filter`)
 2. (externes) analoges Signal mit `ADC` digitalisieren
 3. verschiedene Algorithmen bzw. Filter anwenden
 4. Ergebnis in analoges Signal umwandeln mit `DAC`
-5. analoger Low-Pass-Filter, um Ergebnisfrequenzen einzugrenzen 
+5. analoger Low-Pass-Filter, um Hochfrequenzkomponenten zu entfernen @com(`Glättungsfilter`)
 
 ********************************************************************************
 
-<comment data="╭╮│╰╯┤─├┴└"></comment>
+@com(`╭╮│╰╯┤─├┴└`)
 
-  {{1}}
+  {{1-2}}
 ********************************************************************************
 
 ```ascii
@@ -299,6 +301,22 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
  │   │╰──╯        --> | ADC | --> |-----|-* | | | | --> | Algorithmus | --> |-----*-* | | | | --> | DAC | --> │   ╭───╯        
  │───╯                |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |     │───╯            
  └───────────────     +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+     └─────────────── 
+```
+
+********************************************************************************
+
+  {{2}}
+********************************************************************************
+
+```ascii
+ │   ╭╮      ╭───     +-----+     +-----*-------*-*     +-------------+     +-------------*-*     +-----+     │           ╭─── 
+ │   ││  ╭───╯        |     |     |-----|---*-* | |     |             |     |---------*-* | |     |     |     │       ╭───╯    
+ │   │╰──╯        --> | ADC | --> |-----|-* | | | | --> | Algorithmus | --> |-----*-* | | | | --> | DAC | --> │   ╭───╯        
+ │───╯             A  |     |     |-*-* | | | | | |     |             |     |-*-* | | | | | |     |     |  A  │───╯            
+ └───────────────  |  +-----+     +-+-+-+-+-+-+-+-+     +-------------+     +-+-+-+-+-+-+-+-+     +-----+  |  └─────────────── 
+                   |                                                                                       |
+                   °                                                                                       °
+            Anti-Aliasing Filter                                                                     Glättungsfilter
 ```
 
 ********************************************************************************
@@ -312,45 +330,119 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
   -- [Wikipedia](https://de.wikipedia.org/wiki/Nyquist-Frequenz)
 
-### Komponenten & Features
+### Komponenten
 
   {{0}}
 ********************************************************************************
 
-**Komponenten**
-
-- `ADC` : Analog-Digital Converter
-- `DAC` : Digital-Analog Converter
+- `ADC`[[^?]](# "Analog-Digital Converter") dient Digitalisierung analoger Signale
+- `DAC`[[^?]](# "Digital-Analog Converter") dient der Umwandlung der Daten in analoge Signale
 
 ********************************************************************************
 
   {{1}}
 ********************************************************************************
 
-- `ALU` : Arithmetic-Logical Unit   <comment data="mehrere ALUs, u.a. MAC-Rechenwerk zur parallelen Berechnung kombinierter Operationen"></comment>
-- `FPU` : Floating-Point Unit       <comment data="spezielle ALU für Floating-Point Werte"></comment>
-- `PLU` : Parallel Logic Unit       <comment data="dient der von der ALU unabhängigen Datenmanipulation"></comment>
-- `AGU` : Address Generation Unit   <comment data="-||- Adressberechnungen mittels programmierbarer Counter, Shifter, etc."></comment>
+- `ALU`[[^?]](# "Arithmetic-Logical Unit")
+
+  - Rechenwerk für Accumulate-Operationen wie `MAC`
+  - `FPU`[[^?]](# "Floating-Point Unit") für Floating-Point Operationen
+  - Hardware-Multiplizierer und -Dividierer
+  - weitere `ALU`'s zur parallelen Ausführung von Berechnungen
 
 ********************************************************************************
 
   {{2}}
 ********************************************************************************
 
-**Features**
-
-- Hardwarebasierte Floating-point Operationen
-
-<br>
-
-- digital signal processing instructions
-- floating-point instructions
+- `PLU`[[^?]](# "Parallel Logic Unit") dient der von der `ALU` unabhängigen logischen Datenmanipulation
 
 ********************************************************************************
 
-### AVR- vs. ARM-Assembly
+  {{3}}
+********************************************************************************
 
-``` c C-Code
+- `AGU`[[^?]](# "Address Generation Unit") dient der von der `ALU` unabhängigen Berechnungen von Adressen für Schleifen und Sprünge mittels programmierbarer Counter und Shifter, etc.
+
+********************************************************************************
+
+  {{4}}
+********************************************************************************
+
+>Alle Komponenten können parallel verwendet werden.
+
+********************************************************************************
+
+### Ausgewählte Assembly-Direktiven
+
+-> [STM32 Cortex®-M4 MCUs and MPUs programming manual](docs/stm32-cortex-m4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf)
+
+  {{0-1}}
+********************************************************************************
+
+```asm Multiply and divide instructions, with optional accumulate (S. 109)
+;multiply with accumulate
+;R1 = (R2 x R3) + R4
+MLA R1, R2, R3, R4
+
+;unsigned long multiply, with accumulate, 32-bit operands, producing a 64-bit result with 32-Top- & 32-Bottom-bits
+;R6(T), R3(B) = (R2 x R7) + R6 + R3
+UMAAL R3, R6, R2, R7
+
+;signed divide
+;R0 = R2 / R4
+SDIV R0, R2, R4
+```
+
+********************************************************************************
+
+  {{1-2}}
+********************************************************************************
+
+```asm Saturating instructions (S. 125)
+;logical shift left value in R1 by 4, then saturate it as a signed 16-bit value and write it back to R1
+;R1 = sat(R1 << 4, #16)
+SSAT R1, #16, R1, LSL #4
+```
+
+********************************************************************************
+
+  {{2-3}}
+********************************************************************************
+
+```asm Floating-point instructions (S. 149)
+;move to arm core register R1 from floating-point system register FPEXC
+VMRS R1, FPEXC
+
+;floating-point multiply with negation followed by subtract
+;S1 = (S2 x S3) - S1
+VNMLS.F32 S1, S2, S3
+
+;floating-point Square root
+;S1 = sqrt(S2)
+VSQRT.F32 S1, S2
+```
+
+********************************************************************************
+
+  {{3-4}}
+********************************************************************************
+
+```asm Miscellaneous instructions (S. 180)
+;data synchronization barrier
+;waits until all explicit memory accesses in front of it are completed
+DSB
+
+;instruction synchronization barrier
+;clears the processor's pipeline, so that all instructions following the ISB instruction are re-fetched from cache or memory
+ISB
+```
+
+********************************************************************************
+
+### Arduino Uno vs. ARMv7
+
+```c C-Code
 int main()
 {
   int a=2, b=3, c=4;
@@ -361,7 +453,7 @@ int main()
 
 ---<comment></comment>
 
-``` asm AVR-Assembly für Atmega328P
+```asm AVR-Assembly für Atmega328P
 __SP_H__ = 0x3e
 __SP_L__ = 0x3d
 __SREG__ = 0x3f
@@ -402,7 +494,7 @@ main:
   add r24,r18		;
   adc r25,r19		;
   std Y+2,r25		;
-  std Y+1,r24		;
+  std Y+1,r24		; -> 17 ASM Instruktionen
   ldd r24,Y+1
   ldd r25,Y+2
   adiw r28,6
@@ -416,13 +508,11 @@ main:
   ret
 ```
 
-[Code at Compiler Explorer](https://godbolt.org/z/q1scMhfvj)
-
--> 17 ASM Befehle -> xx Takte
+[Compiler Explorer](https://godbolt.org/z/q1scMhfvj)
 
 ---<comment></comment>
 
-``` asm ARMv7-Assembly für STM32F401
+```asm ARMv7-Assembly für STM32F401
 main:
   sub sp, sp, #16
   mov r0, #0
@@ -437,26 +527,74 @@ main:
   ldr r2, [sp]				;
   ldr r3, [sp, #8]		;
   mla r0, r1, r2, r3	; MAC-Anweisung
-  str r0, [sp, #8]		;
+  str r0, [sp, #8]		; -> 5 ASM Instruktionen
   ldr r0, [sp, #8]
   add sp, sp, #16
   bx lr
 ```
 
-[Code at Compiler Explorer](https://godbolt.org/z/K8M4rYTqh)
-
--> 5 ASM Befehle -> xx Takte
+[Compiler Explorer](https://godbolt.org/z/K8M4rYTqh)
 
 ## Anwendung auf dem Nucleo-64 Board
 
-- STM32F4-Serie mit ARM Cortex-M4F-Kern
+```ascii
+                                STM32 F 401 R E T 6
+                                      A  A  A A A A   
+                                      |  |  | | | |  
+ARM-based 32-bit microcontroller -----+  |  | | | |  
+                                         |  | | | |  
+General-purpose -------------------------+  | | | |  
+                                            | | | | 
+401 family ---------------------------------+ | |   
+                                              | |   
+64 pins                                         |   
+                                                |   
+512 KB of flash memory                              
+                                                    
+LQFP package                                        
+                                                    
+–40 to 85 °C                                        
+```
+
+<br>
+
+- ARMv7E-M[10] Architektur
+- ARM Cortex-M4F-Kern
+
+<br>
+
+- 1-Zyklus Hardware-Multiplizierer
+- Hardware-Dividierer
+- DSP-Erweiterung
+- Sättigungsarithmetik
+- FPU
+
+<br>
+
 - https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
+
+  {{1}}
+********************************************************************************
+
+```c
+int main()
+{
+  return 0;
+}
+```
+
+********************************************************************************
+
+  {{2}}
+********************************************************************************
 
 **Tonsteuerung mittels Ultrashall**
 
 - Entfernung messen und auf Ton mappen (Look-Up, Taylor-Polynom)
 - Analoges Signal der Entfernungsmessung filtern: Noise-Reduction
 - Analoges Signal für Tonausgabe generieren (kein PWM-Rechteck-Signal)
+
+********************************************************************************
 
 ## Referenzen
 
@@ -511,22 +649,62 @@ main:
 ### Issues
 
 - HTML-Kommentare werden in der VSC-Preview als Inahlt angezeigt
-- Eingerückte Anstriche funktionieren nicht
 - Links über Einblendungen sind nicht möglich
-- Einblendungen werden manchmal nicht erkannt
-- Wie kann der Stil von Code-Feldern in der Config festgelegt werden?
 - Im Dark-Mode ist die Liste der Editor-Stile in den Einstellungen falsch koloriert
 - ASCII-Art wird im Dark-Mode als Weiß-auf-Schwarz angezeigt
 - Inline-Code ist im Dark-Mode schlecht lesbar
+
+<br>
+
+- Wie kann der Stil von Code-Feldern in der Config festgelegt werden?
+
+<br>
+
+- Lösungsansätze gibt's auch schon ;)
 
 ### Tricks
 
 - Tooltips[[^?]](# "Fancy Tooltip")
 
+```basic
+[[^?]](# "Fancy Tooltip")
+```
+
 - Hidden-Scripts für GitHub
   <img src="img/hidden_pixel.png" onmouseover='alert("script hidden in img tag of 1x1 transparent pixel");' style="width: 10px; height: 10px; overflow: hidden;">
 
-- Kommentare: `<comment data="Kommentartext"></comment>` <comment data="ein Kommentar"></comment>
+```html
+<img
+  src="img/hidden_pixel.png"
+  onmouseover='alert("script hidden in img tag of 1x1 transparent pixel");'
+  style="width: 10px; height: 10px; overflow: hidden;"
+>
+```
+
+- Kommentare
+  @com(`ein Kommentar`)
+
+```html
+<!-- Macro im Header -->
+@com: <span title='@0'></span>
+
+<!-- Kommentar-Macro nutzen -->
+@com(`Kommentartext`)
+```
 
 - Cookie-basierte Besucherzähler Badge
   <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
+
+```html
+<img
+  id="b"
+  src="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba&query_only"
+  onload='
+    function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+    function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}
+    let u="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");
+    c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'
+  '
+>
+<!-- hier [PAGE_ID] ersetzen -->
+```
