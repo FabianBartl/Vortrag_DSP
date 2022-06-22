@@ -1,5 +1,5 @@
 <!--
-version: 0.18
+version: 0.18a
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -20,6 +20,18 @@ link: ./styles/improvements.css
 import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/README.md
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
 -->
+
+<style>
+  html.lia-variant-dark {
+      --color-highlight-dark: 70,181,185 !important;
+      --color-highlight: 107,196,199 !important;
+  }
+
+  svg { background-color: transparent !important; }
+  html.lia-variant-dark * .lia_header__logo { filter: brightness(200%) !important; }
+
+  .lia-effect { margin-top: 2em !important; }
+</style>
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
 
