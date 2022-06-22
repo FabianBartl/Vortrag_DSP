@@ -1,5 +1,5 @@
 <!--
-version: 0.16
+version: 0.17
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -61,7 +61,7 @@ script: ./scripts/pyscript_alpha.min.js
 **Anwendungen**
 
 - Ersatz für aufwendigere analoge Filtertechnik
-- Realisierung von Steuer-/Regelungstechnik
+- Realisierung von Regelungstechnik
 - Audioverarbeitung
 
 ********************************************************************************
@@ -163,6 +163,19 @@ script: ./scripts/pyscript_alpha.min.js
 
 ## Entwicklung
 
+- Texas Instruments entwickelte von 1976-78 den ersten *Speak & Spell*[^1], der einen `TMS5100` enthielt -- der erste DSP der Branche
+- American Microsystems brachte 1978 den DSP `S2811` auf den Markt, dieser verfügte bereits über einen Hardware-Multiplikator
+<!-- Wurde als Peripheriegerät für Motorola 6800 entwickelt. Der S2811 war auf dem Markt nicht erfolgreich. -->
+- Intel brachte 1979 den `2920` als "analogen Signalprozessor" auf den Markt, mit On-Chip-`ADC`/`DAC`, aber ohne Hardware-Multiplikator
+<!-- war auf dem Markt nicht erfolgreich -->
+- 1980 stellten NEC und AT&T die ersten eigenständigen und vollständigen DSPs vor 
+
+[^1]: **Speak & Spell** war ein Spielzeug von Texas Instruments ...
+
+  -- [Wikipedia](https://en.wikipedia.org/wiki/Speak_%26_Spell_(toy))
+
+### Moderne DSP
+
 - 
 
 ## AVR- vs. ARM-Assembly
@@ -170,9 +183,9 @@ script: ./scripts/pyscript_alpha.min.js
 ``` c C-Code
 int main()
 {
-	int a=2, b=3, c=4;
-	a += b * c;	// Wichtige Zeile
-	return a;
+  int a=2, b=3, c=4;
+  a += b * c; // Wichtige Zeile
+  return a;
 }
 ```
 
@@ -299,28 +312,22 @@ Hardwarebasierte Floating-point Operationen
   {{1}}
 ********************************************************************************
 
-- https://de.wikipedia.org/wiki/Digitaler_Signalprozessor
+- https://en.wikipedia.org/wiki/Digital_signal_processor
 - https://www.ibr.cs.tu-bs.de/courses/ws9798/seminar/haverkamp/seminar.html#385
-- http://www.elektro-archiv.de/archiv/d/dsp/
 - https://technobyte.org/dsp-advantages-disadvantages-block-diagram-applications/
 - https://www.wikiwand.com/de/Digitaler_Signalprozessor
 - https://liascript.github.io/course/?https://raw.githubusercontent.com/TUBAF-IfI-LiaScript/VL_DigitaleSysteme/main/lectures/11_CortexMController.md#3
+- https://www.eejournal.com/article/a-brief-history-of-the-single-chip-dsp-part-i/
+- https://www.computerhistory.org/siliconengine/single-chip-digital-signal-processor-introduced/
 
 ********************************************************************************
 
-### Bilder und Videos
+### Bilder
 
   {{0}}
 ********************************************************************************
 
 - https://www.pexels.com/de-de/foto/mann-person-smartphone-zerbrochen-6755091/
-
-********************************************************************************
-
-  {{1}}
-********************************************************************************
-
-- 
 
 ********************************************************************************
 
@@ -332,6 +339,7 @@ Hardwarebasierte Floating-point Operationen
 - [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
 - [VSC LiaScript Preview Extension](https://marketplace.visualstudio.com/items?itemName=LiaScript.liascript-preview)
 - [ASCII to SVG Editor](https://andre-dietrich.github.io/elm-svgbob/)
+- [Serial Plotter](https://github.com/devinaconley/arduino-plotter)
 
 ### Issues
 
