@@ -1,5 +1,5 @@
 <!--
-version: 1.0a
+version: 1.0b
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
