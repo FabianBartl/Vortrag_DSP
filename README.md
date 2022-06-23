@@ -1,5 +1,5 @@
 <!--
-version: 0.19
+version: 1.0
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -21,6 +21,16 @@ import: https://raw.githubusercontent.com/liascript-templates/plantUML/master/RE
 import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 @com: <span title='@0'></span>
+
+@ttc: <a title='@0' href="#" class="lia-link"><sup><button aria-describedby='footnote-@1' class="lia-btn lia-btn--transparent text-highlight" id='footnote-key-@1' style="padding: 2px;">[@1]</button></sup></a>
+@tt: @ttc(@0, ? )
+
+@hsse: <img src='img/hidden_pixel.png' @2='@0' style='@1'>
+@hss: @hsse(@0, @1, onload)
+@hse: @hsse(@0, '', @1)
+@hs: @hss(@0, '')
+
+@cb: <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h`){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";`);for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b`),p=window.location.search.split("/`).slice(-1)[0],c=g("v`);c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h`);'>
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/DSP-DigSys/main/README.md)
@@ -36,16 +46,14 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 | **Autoren**          | @author                                                                                          |
 | **Version**          | V @version                                                                                       |
 
-<img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
-
-<img src="img/hidden_pixel.png" onload='console.log("hidden script loaded");' style="width:0px;height:0px;overflow:hidden;">
+@cb
 
 ## Gliederung
 
 1. DSP?
 3. Entwicklung
 3. Aufbau & Funktion
-4. Anwendung auf dem STM32F4 Nucleo Board
+4. ~Anwendung auf dem Nucleo-64 Board~
 5. Referenzen
 6. Tools, Issues & Tricks
 
@@ -57,15 +65,26 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{1}}
 ********************************************************************************
 
-**Anforderungen**
+**Prinzip**
 
-- ständige Umwandlung von Signalen von analog in digital und umgekehrt
-- schnelle digitale Manipulation der Daten
-- Echtzeitfähigkeit
+1. analoges Signal digitalisieren
+2. Algorithmen verarbeiten
+3. Ergebnis in analoges Signal umwandeln
 
 ********************************************************************************
 
   {{2}}
+********************************************************************************
+
+**Anforderungen**
+
+- ständige Umwandlung von Signalen von analog in digital und umgekehrt
+- schnelle digitale Manipulation der Daten
+- harte Echtzeitfähigkeit (sehr geringe Latenz)
+
+********************************************************************************
+
+  {{3}}
 ********************************************************************************
 
 - die meisten Allzweck-Mikroprozessoren und Betriebssysteme können DSP-Algorithmen erfolgreich ausführen
@@ -91,11 +110,10 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{1}}
 ********************************************************************************
 
-**Nachteile**
+**Nachteile gegenüber analoger Verarbeitung**
 
 - höherer Stromverbrauch, da DSP aus aktiven Komponenten besteht
 - Verlust von Informationen durch Quantisierung der Daten
-- kostet bei kleineren Systemen mehr als nötig
 
 ********************************************************************************
 
@@ -105,7 +123,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 **Anwendungen**
 
 - Regeltechnik @com(`Motosteuerung`)
-- Digitale Bild-, Ton- und Videoverarbeitung @com(`Mischpulte, Soundkarten, JPEG-/MP3-Komprimierung`)
+- Digitale Bild-, Ton- und Videoverarbeitung @com(`Soundkarten, JPEG-/MP3-Komprimierung`)
 - Telekommunikation @com(`Digital Radio, Telefonieren`)
 - Ersatz für aufwendigere analoge Filtertechnik
 
@@ -118,8 +136,8 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **Floating-Point DSP**
 
-- großer Zahlenbereich, höhere Genauigkeit, automatische Skalierung der Zahlen (`IEEE 754`-Format)
-- `FPU`[[^?]](# "Floating-Point Unit") erhöht Stromverbrauch und Kosten
+- großer Zahlenbereich, höhere Genauigkeit (`IEEE 754`-Format)
+- `FPU`@tt(`Floating-Point Unit`) erhöht Stromverbrauch und Kosten
 
 ********************************************************************************
 
@@ -141,7 +159,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 **Fixed-Point DSP**
 
 - keine `FPU` verbaut -> Verwendung von Integer Operationen
-- kompliziertere Programmierung @com(`Zahlenbereich immer überprüfen, ob overflow auftritt`)
+- kompliziertere Programmierung, da keine automatische Skalierung der Zahlen
 
 ********************************************************************************
 
@@ -163,8 +181,8 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **Anfänge in den 1970er**
 
-- TI[[^?]](# "Texas Instruments") entwickelte von 1976-78 den ersten *Speak & Spell*[^1], der einen `TMS5100` enthielt - der erste DSP der Branche
-- AMI[[^?]](# "American Microsystems") brachte 1978 den DSP `S2811` auf den Markt, dieser verfügte bereits über einen Hardware-Multiplikator
+- TI@tt(`Texas Instruments`) entwickelte von 1976-78 den ersten *Speak & Spell*[^1], der einen `TMS5100` enthielt - der erste DSP der Branche
+- AMI@tt(`American Microsystems`) brachte 1978 den DSP `S2811` auf den Markt, dieser verfügte bereits über einen Hardware-Multiplikator
 @com(`Wurde als Peripheriegerät für Motorola 6800 entwickelt, musste aber vom Host initialisiert werden. War auf dem Markt nicht erfolgreich.`)
 - Intel brachte 1979 den `2920` als "analogen Signalprozessor" auf den Markt, mit On-Chip- `ADC` / `DAC`, aber ohne Hardware-Multiplikator
 @com(`War auf dem Markt nicht erfolgreich.`)
@@ -176,10 +194,10 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **1. Generation in den 1980er**
 
-- 1980 stellten AT&T und NEC[[^?]](# "Nippon Electric Corporation") die ersten eigenständigen und vollständigen DSPs auf der ISSCC[[^?]](# "International Solid-State Circuits Conference") vor, den `DSP1` und `NEC μPD7720`[^2]
+- 1980 stellten AT&T und NEC@tt(`Nippon Electric Corporation`) die ersten eigenständigen und vollständigen DSPs auf der ISSCC@tt(`International Solid-State Circuits Conference`) vor, den `DSP1` und `NEC μPD7720`[^2]
 - der `NEC μPD7720` wurde für Sprachband-Anwendungen eingeführt und war einer der kommerziell erfolgreichsten frühen DSPs
 @com(`Anwendungen, die Frequenzen der gesprochenen Sprache übermitteln`)
-- 1983 stellte TI den DSP `TMS32010` vor, dieser basierte auf der Harward-Architektur, verfügte u.a. über `MAC`[[^?]](# "Multiply-Accumulate Operation")-Anweisungen und konnte mit 16-Bit-Zahlen arbeiten
+- 1983 stellte TI den DSP `TMS32010` vor, dieser basierte auf der Harward-Architektur, verfügte u.a. über `MAC`@tt(`Multiply-Accumulate Operation`)-Anweisungen und konnte mit 16-Bit-Zahlen arbeiten
 - ca. 390 ns Ausführungsdauer für eine `MAC`-Operation
 
 ********************************************************************************
@@ -189,7 +207,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 **2. Generation ab ca. 1985**
 
-- Hardwarebeschleunigung von Schleifen mittels `AGU`[[^?]](# "Address Generation Unit")
+- Hardwarebeschleunigung von Schleifen mittels `AGU`@tt(`Address Generation Unit`)
 - teilweise mit 24-Bit-Variablen
 - ca. 21 ns Ausführungsdauer für eine `MAC`-Operation
 - Bsp.: `AT&T DSP16A`, `Motorola 56000`
@@ -214,7 +232,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 **4. Generation**
 
 - `SIMD`[^3]-Erweiterungen wurden hinzugefügt, diese dienen der echten parallelen Ausführung von vielen gleichen Operationen auf Hardware-Ebene
-- `VLIW`[[^?]](# "Very long instruction word") möglich
+  @com(`VLIW: Very long instruction word`)
 - höhere Taktraten
 - ca. 3 ns Ausführungsdauer für eine `MAC`-Operation
 
@@ -241,7 +259,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{0}}
 ********************************************************************************
 
-- liefern höhere Leistung, u.a. durch schnellen Cache, ein breites Bussystem, und `DMA`[[^?]](# "Direct Memory Access")
+- liefern höhere Leistung, u.a. durch schnellen Cache, ein breites Bussystem, und `DMA`@tt(`Direct Memory Access`)
 - viele verschiedene Arten, jeder für bestimmte Aufgaben besser geeignet
 - DSPs kosten zwischen 1,50 € bis hin zu 300 €
 - TI ist heute Marktführer bei Allzweck DSPs
@@ -256,7 +274,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 - 1,2 GHz Taktrate
 - 8 MB 2nd Level Cache
 - 64 `DMA`-Kanäle
-- teilweise bis zu 8000 MIPS[[^?]](# "Mio. Instruktionen pro Sekunde")
+- teilweise bis zu 8000 MIPS@tt(`Mio. Instruktionen pro Sekunde`)
 - 8 Operationen pro Taktzyklus
 - kompatibel und vielen Peripheriegeräten und Bussen
 - unterstützen in der neuesten Generation Floating-Point und Fixed-Point Verarbeitung
@@ -335,18 +353,18 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{0}}
 ********************************************************************************
 
-- `ADC`[[^?]](# "Analog-Digital Converter") dient Digitalisierung analoger Signale
-- `DAC`[[^?]](# "Digital-Analog Converter") dient der Umwandlung der Daten in analoge Signale
+- `ADC`@tt(`Analog-Digital Converter`) dient Digitalisierung analoger Signale
+- `DAC`@tt(`Digital-Analog Converter`) dient der Umwandlung der Daten in analoge Signale
 
 ********************************************************************************
 
   {{1}}
 ********************************************************************************
 
-- `ALU`[[^?]](# "Arithmetic-Logical Unit")
+- `ALU`@tt(`Arithmetic-Logical Unit`)
 
   - Rechenwerk für Accumulate-Operationen wie `MAC`
-  - `FPU`[[^?]](# "Floating-Point Unit") für Floating-Point Operationen
+  - `FPU`@tt(`Floating-Point Unit`) für Floating-Point Operationen
   - Hardware-Multiplizierer und -Dividierer
   - weitere `ALU`'s zur parallelen Ausführung von Berechnungen
 
@@ -355,14 +373,14 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
   {{2}}
 ********************************************************************************
 
-- `PLU`[[^?]](# "Parallel Logic Unit") dient der von der `ALU` unabhängigen logischen Datenmanipulation
+- `PLU`@tt(`Parallel Logic Unit`) dient der von der `ALU` unabhängigen logischen Datenmanipulation
 
 ********************************************************************************
 
   {{3}}
 ********************************************************************************
 
-- `AGU`[[^?]](# "Address Generation Unit") dient der von der `ALU` unabhängigen Berechnungen von Adressen für Schleifen und Sprünge mittels programmierbarer Counter und Shifter, etc.
+- `AGU`@tt(`Address Generation Unit`) dient der von der `ALU` unabhängigen Berechnungen von Adressen für Schleifen und Sprünge mittels programmierbarer Counter und Shifter, etc.
 
 ********************************************************************************
 
@@ -372,6 +390,101 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 >Alle Komponenten können parallel verwendet werden.
 
 ********************************************************************************
+
+### Arduino Uno vs. ARMv7
+
+```c C-Code
+int main()
+{
+  int a=2, b=3, c=4;
+  a += b * c; // Wichtige Zeile
+  return a;
+}
+```
+
+---@com(`---`)
+
+```asm AVR-Assembly für Atmega328P
+__SP_H__ = 0x3e
+__SP_L__ = 0x3d
+__SREG__ = 0x3f
+__tmp_reg__ = 0
+main:
+  push r28
+  push r29
+  rcall .
+  rcall .
+  rcall .
+  in r28,__SP_L__
+  in r29,__SP_H__
+  ldi r24,lo8(2)
+  ldi r25,0
+  std Y+2,r25
+  std Y+1,r24
+  ldi r24,lo8(3)
+  ldi r25,0
+  std Y+4,r25
+  std Y+3,r24
+  ldi r24,lo8(4)
+  ldi r25,0
+  std Y+6,r25
+  std Y+5,r24
+  ldd r20,Y+3		; Wichtige Zeilen
+  ldd r21,Y+4		;
+  ldd r18,Y+5		;
+  ldd r19,Y+6		;
+  mul r20,r18		;
+  movw r24,r0		;
+  mul r20,r19		;
+  add r25,r0		;
+  mul r21,r18		;
+  add r25,r0		;
+  clr r1				;
+  ldd r18,Y+1		;
+  ldd r19,Y+2		;
+  add r24,r18		;
+  adc r25,r19		;
+  std Y+2,r25		;
+  std Y+1,r24		; -> 17 ASM Instruktionen
+  ldd r24,Y+1
+  ldd r25,Y+2
+  adiw r28,6
+  in __tmp_reg__,__SREG__
+  cli
+  out __SP_H__,r29
+  out __SREG__,__tmp_reg__
+  out __SP_L__,r28
+  pop r29
+  pop r28
+  ret
+```
+
+[Compiler Explorer](https://godbolt.org/z/q1scMhfvj)
+
+---@com(`---`)
+
+```asm ARMv7-Assembly für STM32F401
+main:
+  sub sp, sp, #16
+  mov r0, #0
+  str r0, [sp, #12]
+  mov r0, #2
+  str r0, [sp, #8]
+  mov r0, #3
+  str r0, [sp, #4]
+  mov r0, #4
+  str r0, [sp]
+  ldr r1, [sp, #4]		; Wichige Zeilen
+  ldr r2, [sp]				;
+  ldr r3, [sp, #8]		;
+  mla r0, r1, r2, r3	; MAC-Anweisung
+  str r0, [sp, #8]		; -> 5 ASM Instruktionen
+  ldr r0, [sp, #8]
+  add sp, sp, #16
+  bx lr
+```
+
+[Compiler Explorer](https://godbolt.org/z/K8M4rYTqh)
 
 ### Ausgewählte Assembly-Direktiven
 
@@ -440,120 +553,25 @@ ISB
 
 ********************************************************************************
 
-### Arduino Uno vs. ARMv7
-
-```c C-Code
-int main()
-{
-  int a=2, b=3, c=4;
-  a += b * c; // Wichtige Zeile
-  return a;
-}
-```
-
----<comment></comment>
-
-```asm AVR-Assembly für Atmega328P
-__SP_H__ = 0x3e
-__SP_L__ = 0x3d
-__SREG__ = 0x3f
-__tmp_reg__ = 0
-main:
-  push r28
-  push r29
-  rcall .
-  rcall .
-  rcall .
-  in r28,__SP_L__
-  in r29,__SP_H__
-  ldi r24,lo8(2)
-  ldi r25,0
-  std Y+2,r25
-  std Y+1,r24
-  ldi r24,lo8(3)
-  ldi r25,0
-  std Y+4,r25
-  std Y+3,r24
-  ldi r24,lo8(4)
-  ldi r25,0
-  std Y+6,r25
-  std Y+5,r24
-  ldd r20,Y+3		; Wichtige Zeilen
-  ldd r21,Y+4		;
-  ldd r18,Y+5		;
-  ldd r19,Y+6		;
-  mul r20,r18		;
-  movw r24,r0		;
-  mul r20,r19		;
-  add r25,r0		;
-  mul r21,r18		;
-  add r25,r0		;
-  clr r1				;
-  ldd r18,Y+1		;
-  ldd r19,Y+2		;
-  add r24,r18		;
-  adc r25,r19		;
-  std Y+2,r25		;
-  std Y+1,r24		; -> 17 ASM Instruktionen
-  ldd r24,Y+1
-  ldd r25,Y+2
-  adiw r28,6
-  in __tmp_reg__,__SREG__
-  cli
-  out __SP_H__,r29
-  out __SREG__,__tmp_reg__
-  out __SP_L__,r28
-  pop r29
-  pop r28
-  ret
-```
-
-[Compiler Explorer](https://godbolt.org/z/q1scMhfvj)
-
----<comment></comment>
-
-```asm ARMv7-Assembly für STM32F401
-main:
-  sub sp, sp, #16
-  mov r0, #0
-  str r0, [sp, #12]
-  mov r0, #2
-  str r0, [sp, #8]
-  mov r0, #3
-  str r0, [sp, #4]
-  mov r0, #4
-  str r0, [sp]
-  ldr r1, [sp, #4]		; Wichige Zeilen
-  ldr r2, [sp]				;
-  ldr r3, [sp, #8]		;
-  mla r0, r1, r2, r3	; MAC-Anweisung
-  str r0, [sp, #8]		; -> 5 ASM Instruktionen
-  ldr r0, [sp, #8]
-  add sp, sp, #16
-  bx lr
-```
-
-[Compiler Explorer](https://godbolt.org/z/K8M4rYTqh)
-
 ## Anwendung auf dem Nucleo-64 Board
 
 ```ascii
                                 STM32 F 401 R E T 6
-                                      A  A  A A A A   
-                                      |  |  | | | |  
-ARM-based 32-bit microcontroller -----+  |  | | | |  
-                                         |  | | | |  
-General-purpose -------------------------+  | | | |  
-                                            | | | | 
-401 family ---------------------------------+ | |   
-                                              | |   
-64 pins                                         |   
-                                                |   
-512 KB of flash memory                              
-                                                    
-LQFP package                                        
-                                                    
-–40 to 85 °C                                        
+                                  A   A  A  A A A A
+                                  |   |  |  | | | |
+ARM-based 32-bit microcontroller -.   |  |  | | | |
+                                      |  |  | | | |
+General-purpose ----------------------.  |  | | | |
+                                         |  | | | |
+401 family ------------------------------.  | | | |
+                                            | | | |
+64 pins ------------------------------------. | | |
+                                              | | |
+512 KB of flash memory -----------------------. | |
+                                                | |
+LQFP package -----------------------------------. |
+                                                  |
+–40 to 85 °C -------------------------------------.
 ```
 
 <br>
@@ -569,30 +587,18 @@ LQFP package
 - Sättigungsarithmetik
 - FPU
 
-<br>
-
-- https://www.st.com/content/st_com/en/arm-32-bit-microcontrollers/arm-cortex-m4.html
-
   {{1}}
 ********************************************************************************
 
-```c
-int main()
-{
-  return 0;
-}
-```
+**Mini-Projekt DSP**
 
-********************************************************************************
+1. Entfernung messen und digitalisieren -> `ADC`
+2. DSP-Algorithmus anwenden -> Noise-Reduction, Frequenzanpassung für Tonausgabe
+3. Ton ausgeben -> `DAC`
 
-  {{2}}
-********************************************************************************
+<br>
 
-**Tonsteuerung mittels Ultrashall**
-
-- Entfernung messen und auf Ton mappen (Look-Up, Taylor-Polynom)
-- Analoges Signal der Entfernungsmessung filtern: Noise-Reduction
-- Analoges Signal für Tonausgabe generieren (kein PWM-Rechteck-Signal)
+- *Fertigstellung bis zur nächsten Übung, am 8. Juli*
 
 ********************************************************************************
 
@@ -605,8 +611,6 @@ int main()
 
 - Dr. Yifeng Zhu. *Embedded Systems with ARM Cortex-M Microcontrollers in Assembly Language and C* (3. Aufl.).<br>
   E-Man Press LLC, 2017. ISBN 978-0-9826926-6-0
-
-<br>
 
 - Edmund Weitz. *Konkrete Mathematik (nicht nur) für Informatiker* (1. Aufl.).<br>
   Springer Spektrum, 2018. ISBN 978-3-658-2154-4
@@ -644,7 +648,7 @@ int main()
 - [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
 - [VSC LiaScript Preview Extension](https://marketplace.visualstudio.com/items?itemName=LiaScript.liascript-preview)
 - [ASCII to SVG Editor](https://andre-dietrich.github.io/elm-svgbob/)
-- [Serial Plotter](https://github.com/devinaconley/arduino-plotter)
+@com(`- [Serial Plotter](https://github.com/devinaconley/arduino-plotter)`)
 
 ### Issues
 
@@ -664,21 +668,33 @@ int main()
 
 ### Tricks
 
-- Tooltips[[^?]](# "Fancy Tooltip")
+- Tooltips@tt(`Fancy Tooltip`)
 
-```basic
-[[^?]](# "Fancy Tooltip")
+```html
+<!-- Macro im Header -->
+@ttc: <a title='@0' href="#" class="lia-link"><sup><button aria-describedby='footnote-@1' class="lia-btn lia-btn--transparent text-highlight" id='footnote-key-@1' style="padding: 2px;">[@1]</button></sup></a>
+@tt: @ttc(@0, ? )
+
+<!-- Tooltip Macro nutzen -->
+@tt(`Fancy Tooltip`)
+
+<!-- Tooltip Markdown-Style nutzen -->
+[[^?]](# 'Orginal Markdwon Tooltip')
 ```
 
 - Hidden-Scripts für GitHub
-  <img src="img/hidden_pixel.png" onmouseover='alert("script hidden in img tag of 1x1 transparent pixel");' style="width: 10px; height: 10px; overflow: hidden;">
+  @hsse(`alert("script hidden in img tag of 1x1 transparent pixel");`, `width: 10px; height: 10px; overflow: hidden;`, onmouseover)
 
 ```html
-<img
-  src="img/hidden_pixel.png"
-  onmouseover='alert("script hidden in img tag of 1x1 transparent pixel");'
-  style="width: 10px; height: 10px; overflow: hidden;"
->
+<!-- Macro im Header -->
+@hsse: <img src='img/hidden_pixel.png' @2='@0' style='@1'>
+@hss: @hsse(@0, @1, onload)
+@hse: @hsse(@0, '', @1)
+@hs: @hss(@0, '')
+
+<!-- Hidden-Script Macro nutzen -->
+@hsse(`alert("script hidden in img tag of 1x1 transparent pixel`);`, `width: 10px; height: 10px; overflow: hidden;`, onmouseover)
+@hs(`console.log("simple hidden scrip");`)
 ```
 
 - Kommentare
@@ -688,22 +704,22 @@ int main()
 <!-- Macro im Header -->
 @com: <span title='@0'></span>
 
-<!-- Kommentar-Macro nutzen -->
+<!-- Kommentar Macro nutzen -->
 @com(`Kommentartext`)
 ```
 
 - Cookie-basierte Besucherzähler Badge
-  <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/dsp-digsys-devlop&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
+  @cb
 
 ```html
 <img
   id="b"
   src="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba&query_only"
   onload='
-    function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
-    function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}
-    let u="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");
-    c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'
+    function s(e,t,a=1,s="h`){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+    function g(e){let o=e+"=",t=document.cookie.split(";`);for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}
+    let u="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b`),p=window.location.search.split("/`).slice(-1)[0],c=g("v`);
+    c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h`);'
   '
 >
 <!-- hier [PAGE_ID] ersetzen -->
