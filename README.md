@@ -1,5 +1,5 @@
 <!--
-version: 1.1
+version: 1.2
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -581,101 +581,6 @@ main:
 >Alle Komponenten können parallel verwendet werden.
 
 ********************************************************************************
-
-### Arduino Uno vs. ARMv7
-
-```c C-Code
-int main()
-{
-  int a=2, b=3, c=4;
-  a += b * c; // Wichtige Zeile
-  return a;
-}
-```
-
----@com(`---`)
-
-```asm AVR-Assembly für Atmega328P
-__SP_H__ = 0x3e
-__SP_L__ = 0x3d
-__SREG__ = 0x3f
-__tmp_reg__ = 0
-main:
-  push r28
-  push r29
-  rcall .
-  rcall .
-  rcall .
-  in r28,__SP_L__
-  in r29,__SP_H__
-  ldi r24,lo8(2)
-  ldi r25,0
-  std Y+2,r25
-  std Y+1,r24
-  ldi r24,lo8(3)
-  ldi r25,0
-  std Y+4,r25
-  std Y+3,r24
-  ldi r24,lo8(4)
-  ldi r25,0
-  std Y+6,r25
-  std Y+5,r24
-  ldd r20,Y+3		; Wichtige Zeilen
-  ldd r21,Y+4		;
-  ldd r18,Y+5		;
-  ldd r19,Y+6		;
-  mul r20,r18		;
-  movw r24,r0		;
-  mul r20,r19		;
-  add r25,r0		;
-  mul r21,r18		;
-  add r25,r0		;
-  clr r1				;
-  ldd r18,Y+1		;
-  ldd r19,Y+2		;
-  add r24,r18		;
-  adc r25,r19		;
-  std Y+2,r25		;
-  std Y+1,r24		; -> 17 ASM Instruktionen
-  ldd r24,Y+1
-  ldd r25,Y+2
-  adiw r28,6
-  in __tmp_reg__,__SREG__
-  cli
-  out __SP_H__,r29
-  out __SREG__,__tmp_reg__
-  out __SP_L__,r28
-  pop r29
-  pop r28
-  ret
-```
-
-[Compiler Explorer](https://godbolt.org/z/q1scMhfvj)
-
----@com(`---`)
-
-```asm ARMv7-Assembly für STM32F401
-main:
-  sub sp, sp, #16
-  mov r0, #0
-  str r0, [sp, #12]
-  mov r0, #2
-  str r0, [sp, #8]
-  mov r0, #3
-  str r0, [sp, #4]
-  mov r0, #4
-  str r0, [sp]
-  ldr r1, [sp, #4]		; Wichige Zeilen
-  ldr r2, [sp]				;
-  ldr r3, [sp, #8]		;
-  mla r0, r1, r2, r3	; MAC-Anweisung
-  str r0, [sp, #8]		; -> 5 ASM Instruktionen
-  ldr r0, [sp, #8]
-  add sp, sp, #16
-  bx lr
-```
-
-[Compiler Explorer](https://godbolt.org/z/K8M4rYTqh)
 
 ### Ausgewählte Assembly-Direktiven
 
