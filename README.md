@@ -1,5 +1,5 @@
 <!--
-version: 1.0d
+version: 1.1
 
 author: Fabian Bartl
 email: fabian@informatic-freak.de
@@ -30,7 +30,7 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 @hse: @hsse(@0, '', @1)
 @hs: @hss(@0, '')
 
-@vb <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/vortrag_dsp&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/vortrag_dsp&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
+@vb: <img id="b" src="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/vortrag_dsp&left_color=%235b5b5b&right_color=%230fb3ba&query_only" onload='function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}let u="https://visitor-badge.laobi.icu/badge?page_id=fabianbartl/vortrag_dsp&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'>
 -->
 
 [![LiaScript](https://raw.githubusercontent.com/LiaScript/LiaScript/master/badges/course.svg)](https://liascript.github.io/course/?https://raw.githubusercontent.com/FabianBartl/Vortrag_DSP/main/README.md)
@@ -50,15 +50,199 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 ## Motivation
 
-[EINLEITUNG]
+  {{0-4}}
+********************************************************************************
 
-  {{1}}
+**Mittelwert-Filter**
+
+- Durchschnitt der z.B. letzten drei Werte:
+  $$A=\frac{x_{i-2}+x_{i-1}+x_i}3$$
+
+********************************************************************************
+
+  {{1-4}}
+********************************************************************************
+
+```c C-Code
+#define SIZE 6
+
+int main()
+{
+    int x[SIZE] = {4, 1, 3, 2, 3, 3};
+    int A;
+
+    int i = SIZE; // size of x[]
+    A = (x[i-2] + x[i-1] + x[i]) / 3;
+    
+    return A;
+}
+```
+
+********************************************************************************
+
+  {{2-3}}
+********************************************************************************
+
+```asm AVR-Assembly
+__SP_H__ = 0x3e
+__SP_L__ = 0x3d
+__SREG__ = 0x3f
+__tmp_reg__ = 0
+.LC0:
+  .word 4
+  .word 1
+  .word 3
+  .word 2
+  .word 3
+  .word 3
+main:
+  push r28
+  push r29
+  in r28,__SP_L__
+  in r29,__SP_H__
+  sbiw r28,16
+  in __tmp_reg__,__SREG__
+  cli
+  out __SP_H__,r29
+  out __SREG__,__tmp_reg__
+  out __SP_L__,r28
+  ldi r24,lo8(12)
+  ldi r30,lo8(.LC0)
+  ldi r31,hi8(.LC0)
+  movw r26,r28
+  adiw r26,5
+  0:
+  ld r0,Z+
+  st X+,r0
+  dec r24
+  brne 0b
+  ldi r24,lo8(6)
+  ldi r25,0
+  std Y+2,r25
+  std Y+1,r24
+  ldd r24,Y+1      ;
+  ldd r25,Y+2      ;
+  sbiw r24,2       ;
+  lsl r24          ;   
+  rol r25          ;   
+  movw r18,r28     ; 
+  subi r18,-1      ;
+  sbci r19,-1      ;
+  add r24,r18      ;
+  adc r25,r19      ;
+  adiw r24,4       ;
+  movw r30,r24     ; 
+  ld r18,Z         ;    
+  ldd r19,Z+1      ;
+  ldd r24,Y+1      ;
+  ldd r25,Y+2      ;
+  sbiw r24,1       ;      
+  lsl r24          ;   
+  rol r25          ;   
+  movw r20,r28     ; 
+  subi r20,-1      ;
+  sbci r21,-1      ;
+  add r24,r20      ;
+  adc r25,r21      ;
+  adiw r24,4       ;
+  movw r30,r24     ; 
+  ld r24,Z         ;    
+  ldd r25,Z+1      ;
+  add r18,r24      ;
+  adc r19,r25      ;
+  ldd r24,Y+1      ;    
+  ldd r25,Y+2      ;
+  lsl r24          ;   
+  rol r25          ;   
+  movw r20,r28     ; 
+  subi r20,-1      ;
+  sbci r21,-1      ;
+  add r24,r20      ;
+  adc r25,r21      ;
+  adiw r24,4       ;
+  movw r30,r24     ; 
+  ld r24,Z         ;    
+  ldd r25,Z+1      ;      
+  add r24,r18      ;
+  adc r25,r19      ;
+  ldi r18,lo8(3)   ;   
+  ldi r19,0        ;
+  movw r22,r18     ; 
+  call __divmodhi4 ;     
+  movw r24,r22     ; 
+  std Y+4,r25      ;
+  std Y+3,r24      ;
+  ldd r24,Y+3
+  ldd r25,Y+4
+  adiw r28,16
+  in __tmp_reg__,__SREG__
+  cli
+  out __SP_H__,r29
+  out __SREG__,__tmp_reg__
+  out __SP_L__,r28
+  pop r29
+  pop r28
+  ret
+```
+
+********************************************************************************
+
+  {{3-4}}
+********************************************************************************
+
+```asm ARMv7-Assembly
+main:
+  push {r4, r5, r6, r10, r11, lr}
+  add r11, sp, #16
+  sub sp, sp, #36
+  mov r0, #0
+  str r0, [r11, #-20]
+  ldr r2, .LCPI0_1
+.LPC0_0:
+  add r2, pc, r2
+  add r1, sp, #8
+  mov r0, r1
+  ldm r2, {r3, r4, r5, r6, r12, lr}
+  stm r0, {r3, r4, r5, r6, r12, lr}
+  mov r0, #6
+  str r0, [sp]
+  ldr r2, [sp]                ;
+  add r3, r1, r2, lsl #2      ;
+  ldr r0, [r3, #-8]           ;
+  ldr r3, [r3, #-4]           ;
+  add r0, r0, r3              ;
+  ldr r1, [r1, r2, lsl #2]    ;
+  add r2, r0, r1              ;
+  ldr r3, .LCPI0_0            ;
+  smull r1, r0, r2, r3        ;
+  add r0, r0, r0, lsr #31     ;
+  str r0, [sp, #4]            ;
+  ldr r0, [sp, #4]
+  sub sp, r11, #16
+  pop {r4, r5, r6, r10, r11, lr}
+  bx lr
+.LCPI0_0:
+  .long 1431655766 @ 0x55555556
+.LCPI0_1:
+  .long .L__const.main.x-(.LPC0_0+8)
+.L__const.main.x:
+  .long 4 @ 0x4
+  .long 1 @ 0x1
+  .long 3 @ 0x3
+  .long 2 @ 0x2
+  .long 3 @ 0x3
+  .long 3 @ 0x3
+```
+
+********************************************************************************
+
+  {{4}}
 ********************************************************************************
 
 1. DSP?
-3. Entwicklung
+2. Entwicklung
 3. Aufbau & Funktion
-4. ~Anwendung auf dem Nucleo-64 Board~
+4. Anwendung auf dem Nucleo-64 Board
 5. Referenzen
 6. Tools, Issues & Tricks
 
@@ -723,10 +907,10 @@ LQFP package -----------------------------------. |
   id="b"
   src="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba&query_only"
   onload='
-    function s(e,t,a=1,s="h`){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
-    function g(e){let o=e+"=",t=document.cookie.split(";`);for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}
-    let u="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b`),p=window.location.search.split("/`).slice(-1)[0],c=g("v`);
-    c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h`);'
+    function s(e,t,a=1,s="h"){const c=new Date;let i=1;switch(s){case"y":i=31557600;break;case"d":i=86400;break;case"m":i=60;break;case"s":i=1;break;case"h":default:i=3600}c.setTime(c.getTime()+a*i*1e3);let o="expires="+c.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+    function g(e){let o=e+"=",t=document.cookie.split(";");for(let e=0;e<t.length;e++){let i=t[e];for(;" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(o))return i.substring(o.length,i.length)}return null}
+    let u="https://visitor-badge.laobi.icu/badge?page_id=[PAGE_ID]&left_color=%235b5b5b&right_color=%230fb3ba",b=document.getElementById("b"),p=window.location.search.split("/").slice(-1)[0],c=g("v");
+    c&&c.includes(p)?b.src=u+"&query_only":b.src=u;s("v",p,2,"h");'
   '
 >
 <!-- hier [PAGE_ID] ersetzen -->
