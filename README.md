@@ -48,7 +48,12 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 
 @cb
 
-## Gliederung
+## Motivation
+
+[EINLEITUNG]
+
+  {{1}}
+********************************************************************************
 
 1. DSP?
 3. Entwicklung
@@ -56,6 +61,8 @@ import: https://github.com/LiaTemplates/AVR8js/main/README.md
 4. ~Anwendung auf dem Nucleo-64 Board~
 5. Referenzen
 6. Tools, Issues & Tricks
+
+********************************************************************************
 
 ## DSP?
 
